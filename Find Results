@@ -1,0 +1,16 @@
+Searching 348 files for "btnStart"
+
+/Applications/XAMPP/xamppfiles/htdocs/sbi/index.html:
+   21  
+   22      $(document).ready(function () {
+   23:         $('#btnStart').on('click', function () {
+   24  				debugger;
+   25              popup('index_main.html');
+   ..
+   71                  <div class="text-center">
+   72  
+   73:                     <a class="btn btn-lg btn-success" id="btnStart"> Start e-Lesson</a>
+   74  
+   75  
+
+2 matches in 1 file

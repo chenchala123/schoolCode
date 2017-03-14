@@ -1,0 +1,162 @@
+<div class="row off-set-menu m-b-100px">
+    <div class="form-group">
+        <h4>TEACHER REGISTRATION:</h4>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>First Name:</label>
+            </div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control txt-width" ng-model="firstName">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>Last Name:</label>
+            </div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control txt-width" ng-model="lastName">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label> Email:</label>
+            </div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control txt-width" ng-model="parentEmail">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>Password:</label>
+            </div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control txt-width" ng-model="pwd">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>Confirm Password:</label>
+            </div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control txt-width" ng-model="cpwd">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>Date Of Birth:</label>
+            </div>
+            <div class="col-sm-7">
+                <past-date past-date="dob"> </past-date>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>Gender:</label>
+            </div>
+            <div class="col-sm-7">
+                <input type="radio" value="male" name="gender" ng-model="gender"><span class="m-l-10px">Male</span>
+                <input type="radio" name="gender" value="female" ng-model="gender"><span class="m-l-10px">FeMale</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>Phone Number:</label>
+            </div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control txt-width" ng-model="phoneNo">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>Phone Number:</label>
+            </div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control txt-width" ng-model="phoneNo">
+            </div>
+        </div>
+    </div>
+     <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>Country:</label>
+            </div>
+            <div class="col-sm-7">
+                <select class="form-control ddl-width" ng-model="selClass" ng-change="changeCountry()">
+                    <option value="">Select Country</option>
+                    <option ng-repeat="countryObj in countryList" value="{{classObj}}">{{countryObj}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+     <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>State:</label>
+            </div>
+            <div class="col-sm-7">
+                <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()">
+                    <option value="">Select State</option>
+                    <option ng-repeat="stateObj in stateList" value="{{classObj}}">{{stateObj}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>City:</label>
+            </div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control txt-width" ng-model="city">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>Postel Code:</label>
+            </div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control txt-width" ng-model="postelCode">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label>Security Question:</label>
+            </div>
+            <div class="col-sm-7">
+                <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()">
+                    <option value="">select question</option>
+                    <option ng-repeat="queObj in queList" value="{{queObj}}">{{queObj}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="row text-center">
+            <input type="button" class="btn btn-primary" value="Submit">
+            <input type="button" class="btn btn-primary m-l-10px" value="Reset">
+        </div>
+    </div>
+</div>

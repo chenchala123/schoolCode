@@ -1,0 +1,55 @@
+<div class="visible-xs visible-sm hidden-md  hidden-lg pull-right ">
+    <button type="button" ng-click="menuToggle()" >
+        <i class="fa fa-bars fa-2x fa-color" aria-hidden="true"></i>
+    </button>
+</div>
+<ul class="menu m-b-100px">
+    <li id="dashboard" class="top-li"  data-toggle="collapse" href="#admin" data-ng-click="clickMainTab('dashboard')">  <i class="fa fa-unlock-alt fa-lg"></i>&nbsp;Dashboard
+    </li>
+   
+    <li id="student" class="top-li"  data-toggle="collapse" href="#studentMenu" data-ng-click="clickMainTab('student')"><i class="fa fa-graduation-cap fa-lg"></i>&nbsp;Student
+        <span ng-if="!studentTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+        <span ng-if="studentTop" class="glyphicon glyphicon-chevron-down pull-right"></span>
+    </li>
+    <ul id="studentMenu"  class="inner-ul colList list-group  collapse">
+        <li id="stdSubMenu1" ng-click="clickSubTab('stdSubMenu1')" class="list-group-item">New Student</li>
+        <li id="stdSubMenu2" ng-click="clickSubTab('stdSubMenu2')" class="list-group-item">Students List</li>
+    </ul>
+
+    <li id="teacher" class="top-li" data-toggle="collapse" href="#teacherMenu" data-ng-click="clickMainTab('teacher')"><i class="fa fa-pencil-square-o fa-lg"></i>&nbsp;Teacher
+        <span ng-if="!examTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+        <span ng-if="examTop" class="glyphicon glyphicon-chevron-down pull-right"></span>
+    </li>
+    <ul  id="teacherMenu"  class="inner-ul colList list-group  collapse">
+        <li  id="teaSubMenu1" ng-click="clickSubTab('teaSubMenu1')" class="list-group-item">New Teacher</li>
+        <li id="teaSubMenu2" ng-click="clickSubTab('teaSubMenu2')" class="list-group-item">Teachers List</li>
+    </ul>
+    <li id="events"  class="top-li" data-toggle="collapse" href="#eventsMenu" data-ng-click="clickMainTab('events')"><i class="fa fa-money fa-lg"></i> &nbsp;Event
+        <span ng-if="!examFeeTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+        <span ng-if="examFeeTop" class="glyphicon glyphicon-chevron-down pull-right"></span>
+    </li>
+    <ul  id="eventsMenu" class="inner-ul colList list-group  collapse">
+        <li id="eveSubMenu1" ng-click="clickSubTab('eveSubMenu1')" class="list-group-item">Host Event</li>
+        <li id="eveSubMenu2" ng-click="clickSubTab('eveSubMenu2')" class="list-group-item">Upcoming Events</li>
+    </ul>
+    <li id="class" class="top-li" data-toggle="collapse" data-ng-click="clickMainTab('class')"><i class="fa fa-calendar fa-lg"></i>&nbsp;Class
+       
+    </li>
+    
+    <li id="dairy" class="top-li" data-toggle="collapse"  data-ng-click="clickMainTab('dairy')"> <i class="fa fa-user fa-lg"></i>&nbsp;Dairy
+       
+    </li>
+    
+    <li id="library" class="top-li" data-toggle="collapse"  data-ng-click="clickMainTab('library')"><i class="fa fa-area-chart fa-lg"></i>&nbsp;Library
+       
+    </li>
+    
+    <li id="payment" class="top-li" data-toggle="collapse"  data-ng-click="clickMainTab('payment')"> <i class="fa fa-bus fa-lg"></i>&nbsp;Payment
+      
+    </li>
+
+    <li id="reset" class="top-li"  data-toggle="collapse" data-ng-click="clickMainTab('reset')"> <i class="fa fa-cart-plus fa-lg"></i>&nbsp;Reset Password
+        
+    </li>
+
+</ul>
