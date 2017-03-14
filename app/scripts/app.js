@@ -8,7 +8,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.calendar'
+    'ui.calendar',
+    'easypiechart'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -58,7 +59,7 @@ angular
       })
       .when('/admin/dashboard', {
         templateUrl: 'views/admin/adminDashBoard.html',
-        controller: 'MainCtrl',
+        controller: 'DashBoardCtrl',
       })
       .otherwise({
         redirectTo: '/admin/dashboard'
