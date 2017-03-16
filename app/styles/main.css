@@ -32,43 +32,88 @@
     cursor: pointer;
     color: white;
 }
-.inner-ul  > li{
-	    padding-left: 30px;
+
+.inner-ul > li {
+    padding-left: 30px;
     font-size: 12px;
     font-weight: bold;
     cursor: pointer;
-        background: whitesmoke;
+    background: whitesmoke;
 }
-.inner-ul{
-	margin-bottom: 0px !important;
+
+.inner-ul {
+    margin-bottom: 0px !important;
 }
-.sel-topmenu-bg{
-  background: darkcyan !important;
+
+.sel-topmenu-bg {
+    background: darkcyan !important;
 }
-.sel-submenu-bg{
-   background: darkgray !important;	
+
+.sel-submenu-bg {
+    background: darkgray !important;
 }
-.m-b-50px{
-	margin-bottom: 50px;
+
+.m-b-50px {
+    margin-bottom: 50px;
 }
-.m-b-100px{
-	margin-bottom: 100px;
+
+.m-b-100px {
+    margin-bottom: 100px;
 }
-.off-set-menu{
+
+.off-set-menu {
     margin-left: 200px;
 }
-.ddl-width{
-    width: 225px;
+
+.ddl-width {
+    width: 300px;
 }
-.txt-width{
-    width: 225px;
+
+.txt-width {
+    width: 300px;
 }
-.m-l-10px{
- margin-left: 10px
+
+.m-l-10px {
+    margin-left: 10px
 }
-.z-index-1000{
+
+.z-index-1000 {
     z-index: 1000;
 }
-.width-95-p{
+
+.width-95-p {
     width: 95%;
+}
+
+.box-shadow-empPhone {
+    height: 150px;
+    box-shadow: 0px 3px 10px 5px #888888;
+}
+
+.box-shadow-empAdd {
+    height: 400px;
+    box-shadow: 0px 3px 10px 5px #888888;
+}
+
+.border-bottom {
+    border-bottom: 1px solid black;
+}
+
+.p-l-15px {
+    padding-left: 15px;
+}
+
+.m-l-27p {
+    margin-left: 27%;
+}
+
+.plus-pos {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+.trash-pos{
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }

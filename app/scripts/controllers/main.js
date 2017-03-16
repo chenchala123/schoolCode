@@ -1,9 +1,13 @@
 'use strict';
 
 angular.module('schoolApp')
-    .controller('MainCtrl', function($scope, $location, $timeout) {
+    .controller('MainCtrl', function($scope,$rootScope, $location, $timeout) {
 
-
+       
+        $rootScope.$on('loggedIn',function(){
+             $location.path('/admin/dashboard');
+              $scope.isAdminLoggedIn=true;
+        });
         $scope.clickMainTab = function(tabName) {
             $('.top-li').removeClass('sel-topmenu-bg');
             $('.inner-ul li').removeClass('sel-submenu-bg');

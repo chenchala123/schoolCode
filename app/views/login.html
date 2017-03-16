@@ -1,0 +1,51 @@
+
+
+<div class="form-group m-b-100px">
+
+<div class="row form-group">
+<div class="col-md-5" ></div>
+  
+<div class="col-md-3">
+
+ <h2>Login </h2>
+ 
+</div>
+</div>
+<form id="loginForm">
+<div class="row form-group">
+  
+<div class="col-md-5 text-right">
+<label for="uname" >UserName:</label>
+</div>
+<div class="col-md-3">
+<input type="text"  class="form-control" data-ng-model="uname"  name="uname" placeholder="UserName" />
+</div>
+</div>
+<div class="row form-group">
+<div class="col-md-5 text-right">
+<label for="pwd" >Password:</label>
+</div>
+<div class="col-md-3">
+<input type="password" class="form-control" data-ng-model="pwd"  name="pwd" placeholder="PassWord"/>
+</div>
+</div>
+<div class="row form-group">
+<div class="col-md-5" ></div>
+  
+<div class="col-md-3">
+
+ <input type="submit" class="btn btn-primary" data-ng-click="fnLogin();" value="Login"/>
+ 
+</div>
+</div>
+</form>
+<div class="row form-group">
+<div class="col-md-12 text-center">
+<span data-ng-bind="msg" data-ng-class="'text-danger'">
+</span>
+</div>
+</div>
+</div>
+
+
+

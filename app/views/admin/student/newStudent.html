@@ -81,13 +81,13 @@
                 <label>Image Upload:</label>
             </div>
             <div class="col-sm-7">
-                <input type="file" >
+                 <input type ="file"   ng-model="stdImg" name="stdImg" file-model="stdImg">
             </div>
         </div>
     </div>
     <div class="form-group">
         <div class="row text-center">
-            <input type="button" class="btn btn-primary" value="Submit"><input type="button" class="btn btn-primary m-l-10px" value="Reset">
+            <input type="button" class="btn btn-primary" ng-click="fnRegisterStudent()" value="Submit"><input type="button" class="btn btn-primary m-l-10px" value="Reset">
         </div>
     </div>
 </div>
