@@ -1,19 +1,28 @@
 'use strict';
 
 angular.module('schoolApp')
-    .controller('MainCtrl', function($scope,$rootScope, $location, $timeout) {
+    .controller('MainCtrl', function($scope, $rootScope, $location, $timeout) {
 
-       
-        $rootScope.$on('loggedIn',function(){
-             $location.path('/admin/dashboard');
-              $scope.isAdminLoggedIn=true;
+
+        $rootScope.$on('loggedIn', function() {
+            $location.path('/admin/dashboard');
+            $scope.isAdminLoggedIn = true;
         });
+        var sucLogoutCB = function(res) {
+
+        }
+        var errLooutCB = function(res) {
+
+        }
+        $scope.logout = function() {
+            ServerCall.getData('authentication/logout', 'get', '', sucLogoutCB, errLogoutCB)
+        }
         $scope.clickMainTab = function(tabName) {
             $('.top-li').removeClass('sel-topmenu-bg');
             $('.inner-ul li').removeClass('sel-submenu-bg');
             $('.inner-ul').removeClass('in');
             $('#' + tabName).addClass('sel-topmenu-bg');
-            
+
             $scope.fnRouteChange(tabName);
         }
         $scope.clickSubTab = function(subTab) {
@@ -73,44 +82,44 @@ angular.module('schoolApp')
                 case '/admin/student/new':
                     $scope.clickMainTab('student');
                     $scope.clickSubTab('stdSubMenu1');
-                    $timeout(function(){
-                    $('#studentMenu').addClass('in');
-                    },100);
+                    $timeout(function() {
+                        $('#studentMenu').addClass('in');
+                    }, 100);
                     break;
                 case '/admin/student/list':
                     $scope.clickMainTab('student');
                     $scope.clickSubTab('stdSubMenu2');
-                   $timeout(function(){
-                    $('#studentMenu').addClass('in');
-                    },100);
+                    $timeout(function() {
+                        $('#studentMenu').addClass('in');
+                    }, 100);
                     break;
                 case '/admin/teacher/new':
                     $scope.clickMainTab('teacher');
                     $scope.clickSubTab('teaSubMenu1');
-                    $timeout(function(){
-                    $('#teacherMenu').addClass('in');
-                    },100);
+                    $timeout(function() {
+                        $('#teacherMenu').addClass('in');
+                    }, 100);
                     break;
                 case '/admin/teacher/list':
                     $scope.clickMainTab('teacher');
                     $scope.clickSubTab('teaSubMenu2');
-                    $timeout(function(){
-                    $('#teacherMenu').addClass('in');
-                    },100);
+                    $timeout(function() {
+                        $('#teacherMenu').addClass('in');
+                    }, 100);
                     break;
                 case '/admin/event/new':
                     $scope.clickMainTab('events');
                     $scope.clickSubTab('eveSubMenu1');
-                    $timeout(function(){
-                    $('#eventsMenu').addClass('in');
-                    },100);
+                    $timeout(function() {
+                        $('#eventsMenu').addClass('in');
+                    }, 100);
                     break;
                 case '/admin/event/list':
                     $scope.clickMainTab('events');
                     $scope.clickSubTab('eveSubMenu2');
-                    $timeout(function(){
-                    $('#eventsMenu').addClass('in');
-                    },100);
+                    $timeout(function() {
+                        $('#eventsMenu').addClass('in');
+                    }, 100);
                     break;
                 case '/admin/class':
                     $scope.clickMainTab('class');

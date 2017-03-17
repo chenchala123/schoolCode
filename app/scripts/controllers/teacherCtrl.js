@@ -52,16 +52,17 @@ angular.module('schoolApp')
                 _tempPostal[i + 1] = $scope.addPostalCode[$scope.addList[i]];
             }
             $scope.addList = _tempList;
-            $scope.addType=_tempAddType;
-            $scope.addline1=_tempAdd1;
-            $scope.addline2=_tempAdd2;
-            $scope.addCity=_tempCity;
-            $scope.addState=_tempState;
-            $scope.addCountry=_tempCountry;
-            $scope.addPostalCode=_tempPostal;
+            $scope.addType = _tempAddType;
+            $scope.addline1 = _tempAdd1;
+            $scope.addline2 = _tempAdd2;
+            $scope.addCity = _tempCity;
+            $scope.addState = _tempState;
+            $scope.addCountry = _tempCountry;
+            $scope.addPostalCode = _tempPostal;
         };
         $scope.fnRegisterEmployee = function() {
-            var phoneNumersArr = [];
+            var phoneNumersArr = [],
+                addArr = [];
             for (var i = 1; i <= $scope.phoneNumList.length; i++) {
                 var _tempObj = {
                     "PhoneTypeID": $scope.phoneType[i],
@@ -69,6 +70,18 @@ angular.module('schoolApp')
                     "PhoneExt": null
                 }
                 phoneNumersArr.push(_tempObj);
+            }
+            for (var i = 1; i <= $scope.addList.length; i++) {
+                var _tempObj = {
+                    "AddressTypeID": $scope.addType[i],
+                    "Address1": $scope.addline1[i],
+                    "Address2": $scope.addline2[i],
+                    "City": $scope.addCity[i],
+                    "State": $scope.addState[i],
+                    "CountryID": $scope.addCountry[i],
+                    "PostalCode": $scope.addPostalCode[i]
+                }
+                addArr.push(_tempObj);
             }
 
         };

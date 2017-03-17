@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('schoolApp')
-    .controller('LoginCtrl', function($scope,ServerCall,$rootScope) {
+    .controller('LoginCtrl', function($scope, ServerCall, $rootScope) {
 
         $scope.fnLogin = function() {
             var dataObj = {
@@ -20,11 +20,21 @@ angular.module('schoolApp')
             }
             var sucLoginCB = function(res) {
                 debugger;
-                $rootScope.$broadcast('loggedIn',{});
+                $rootScope.$broadcast('loggedIn', {});
+                $scope.fnGetClassList();
             }
-            var errLoginCB = function(res) {
-            }
-            ServerCall.getData('authentication/login', 'POST', dataObj, sucLoginCB, errLoginCB)
-			//201703098223
+            var errLoginCB = function(res) {}
+            ServerCall.getData('authentication/login', 'POST', dataObj, sucLoginCB, errLoginCB);
+            //201703098223
+            var classListSuccess = function(res) {
+                debugger;
+                sessionStorage.setItem('classList', JSON.stringify(res.classList));
+            };
+            var classListError = function(res) {
+                debugger;
+            };
+            $scope.fnGetClassList = function() {
+                ServerCall.getData('lookup/class', 'GET', '', classListSuccess, classListError);
+            };
         }
     });

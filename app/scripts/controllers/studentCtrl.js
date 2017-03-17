@@ -1,20 +1,12 @@
 'use strict';
 
 angular.module('schoolApp')
-    .controller('StudentCtrl', function($scope, ServerCall,fileUpload) {
+    .controller('StudentCtrl', function($scope, ServerCall,fileUpload,CommonService) {
         $scope.gender = 'male';
-        var classListSuccess = function(res) {
-            debugger;
-
-        }
-        var classListError = function(res) {
-            debugger;
-        }
-        ServerCall.getData('lookup/class', 'GET', '', classListSuccess, classListError);
+        $scope.classList=CommonService.getClassList();
         var stdListSuccess = function(res) {
-            $scope.stdList = res;
-
-        }
+                $scope.stdList = res;
+            }
         var stdListError = function(res) {
             debugger;
         }
