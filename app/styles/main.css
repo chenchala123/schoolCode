@@ -131,10 +131,9 @@
 }
 .spinnerColor{
     color: rgb(34, 133, 136) !important;
-
 }
 
-#bgDiv{
+#bigDiv{
     position: fixed;
     left: 0;
     top: 0;
