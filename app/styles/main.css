@@ -126,8 +126,8 @@
     position: fixed;
     z-index: 10001;
     left: 47%;
-    top: 50%;
-   
+    top: 40%;
+    display: none;
 }
 .spinnerColor{
     color: rgb(34, 133, 136) !important;
@@ -143,5 +143,8 @@
     background: black;
     z-index: 1000;
     opacity: 0.6;
-    
+    display: none;
+}
+.w-100{
+    width: 100px;
 }
