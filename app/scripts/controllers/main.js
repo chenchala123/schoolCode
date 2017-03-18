@@ -1,22 +1,18 @@
 'use strict';
 
 angular.module('schoolApp')
-    .controller('MainCtrl', function($scope, $rootScope, $location, $timeout) {
-
+    .controller('MainCtrl', function($scope,$modal, $rootScope, $location, $timeout) {
+        $scope.isAdminLoggedIn = false;
+        if (sessionStorage.getItem('token') != null) {
+            $scope.isAdminLoggedIn = true;
+        }
 
         $rootScope.$on('loggedIn', function() {
             $location.path('/admin/dashboard');
             $scope.isAdminLoggedIn = true;
         });
-        var sucLogoutCB = function(res) {
 
-        }
-        var errLooutCB = function(res) {
 
-        }
-        $scope.logout = function() {
-            ServerCall.getData('authentication/logout', 'get', '', sucLogoutCB, errLogoutCB)
-        }
         $scope.clickMainTab = function(tabName) {
             $('.top-li').removeClass('sel-topmenu-bg');
             $('.inner-ul li').removeClass('sel-submenu-bg');
@@ -144,7 +140,30 @@ angular.module('schoolApp')
 
             }
         }
-
+        $scope.fnLogout=function() {
+            $modal.open({
+                templateUrl: 'views/confirmationModal.html',
+                controller: function($scope, $modalInstance, $location, $rootScope, ServerCall) {
+                    $scope.close = function() {
+                        $modalInstance.close();
+                    }
+                    var sucCB = function(res) {
+                        debugger;
+                        $locaton.path('/');
+                        sessionStorage.removeItem('token');
+                    }
+                    var errCB = function(res) {
+                        
+                    }
+                    $scope.yes = function() {
+                        ServerCall.getData('authentication/logout', 'get', '', sucCB, errCB)
+                    }
+                },
+                size: 'sm',
+                backdrop: 'static',
+                keyboard: 'false'
+            })
+        }
         $timeout(function() {
             $scope.fnRefresh();
         }, 1000);

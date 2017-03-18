@@ -2,6 +2,9 @@
      <div class="row">
      <div class="col-sm-3">
      <img id="logo" class="img-responsive pull-right" ng-src="images/sch9.png"></div>
+     <div class="col-sm-6"></div>
+     <div class="col-sm-3 text-right">
+     <a ng-if="isAdminLoggedIn" href="" ng-click="fnLogout()">Logout</a></div>
      </div>
     <div ng-if="isAdminLoggedIn" ng-include="'views/admin/adminMenu.html'" ></div>
 </div>

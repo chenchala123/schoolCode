@@ -9,7 +9,7 @@ angular.module('schoolApp')
 
         }
         $scope.fnGetDairyDetails = function() {
-            ServerCall.getData('student/' 'GET', '', dairySuccess, dairyError);
+            ServerCall.getData('student/', 'GET', '', dairySuccess, dairyError);
 
         }
     });

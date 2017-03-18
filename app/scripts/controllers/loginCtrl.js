@@ -20,21 +20,21 @@ angular.module('schoolApp')
             }
             var sucLoginCB = function(res) {
                 debugger;
-                $rootScope.$broadcast('loggedIn', {});
-                $scope.fnGetClassList();
+                if(res.Sucess==true){
+                     sessionStorage.setItem('token',res.Token);
+                     $rootScope.$broadcast('loggedIn', {});
+
+
+                }else if(res.IsLockedOut==true){
+
+                }else{
+
+                }
+               
             }
             var errLoginCB = function(res) {}
             ServerCall.getData('authentication/login', 'POST', dataObj, sucLoginCB, errLoginCB);
             //201703098223
-            var classListSuccess = function(res) {
-                debugger;
-                sessionStorage.setItem('classList', JSON.stringify(res.classList));
-            };
-            var classListError = function(res) {
-                debugger;
-            };
-            $scope.fnGetClassList = function() {
-                ServerCall.getData('lookup/class', 'GET', '', classListSuccess, classListError);
-            };
+            
         }
     });
