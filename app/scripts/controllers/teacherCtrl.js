@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('schoolApp')
-    .controller('TeacherCtrl', function($scope) {
+    .controller('TeacherCtrl', function($scope,$rootScope,ServerCall,CommonService) {
         $scope.gender = 'male';
         $scope.phoneNumList = [1];
         $scope.addList = [1];
@@ -14,6 +14,9 @@ angular.module('schoolApp')
         $scope.addState = {};
         $scope.addCountry = {};
         $scope.addPostalCode = {};
+        $rootScope.$on('teachersList',function(){
+             $scope.fnEmployeeList();
+        });
         $scope.addPhoneNumbers = function() {
             var count = $scope.phoneNumList.length;
             $scope.phoneNumList.push(count + 1);
@@ -85,6 +88,18 @@ angular.module('schoolApp')
             }
 
         };
+       
+        var empListSuccess = function(res) {
+                $scope.empList = res;
+            }
+        var empListError = function(res) {
+            debugger;
+        }
+        $scope.fnEmployeeList = function(selClassId) {
+
+            ServerCall.getData('teacher/teacherObject', 'GET', '', empListSuccess, empListError);
+
+        }
     });
 
 

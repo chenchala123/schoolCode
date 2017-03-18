@@ -48,6 +48,10 @@ angular
         templateUrl: 'views/admin/teacher/teachersList.html',
         controller: 'TeacherCtrl',
       })
+      .when('/admin/event/diary', {
+        templateUrl: 'views/admin/event/eventsDairy.html',
+        controller: 'EventCtrl',
+      })
       .when('/admin/teacher/new', {
         templateUrl: 'views/admin/teacher/newTeacher.html',
         controller: 'TeacherCtrl',

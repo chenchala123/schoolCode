@@ -47,11 +47,16 @@ angular.module('schoolApp')
                     break;
                 case 'teaSubMenu2':
                     $location.path('/admin/teacher/list');
+                    $rootScope.$broadcast('teachersList');
                     break;
                 case 'eveSubMenu1':
                     $location.path('/admin/event/new');
                     break;
                 case 'eveSubMenu2':
+                    $location.path('/admin/event/diary');
+                    $rootScope.$broadcast('eventsDiary');
+                    break;
+                case 'eveSubMenu3':
                     $location.path('/admin/event/list');
                     break;
                 case 'class':

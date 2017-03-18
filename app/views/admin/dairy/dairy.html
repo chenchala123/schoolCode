@@ -2,5 +2,14 @@
     <div class="form-group">
         <h4> DAIRY:</h4>
     </div>
-    
+    <div class="form-group">
+    	<div class="row">
+           <cur-date sel-date="date"> </cur-date>
+        <select class="form-control ddl-small-width" ng-model="selClass" >
+            <option value="">Select Class</option>
+            <option ng-repeat="classObj in classList" value="{{classObj}}">{{classObj}}</option>
+        </select>
+        <input type="submit" class="btn btn-primary" value="Get Events" ng-click="fnGetDairyDetails()">
+        </div>
+    </div>
 </div>

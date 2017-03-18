@@ -3,6 +3,5 @@
      <div class="col-sm-3">
      <img id="logo" class="img-responsive pull-right" ng-src="images/sch9.png"></div>
      </div>
-    
-    <div ng-if="true" ng-include="'views/admin/adminMenu.html'" ></div>
+    <div ng-if="isAdminLoggedIn" ng-include="'views/admin/adminMenu.html'" ></div>
 </div>
