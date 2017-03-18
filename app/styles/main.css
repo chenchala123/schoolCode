@@ -120,3 +120,28 @@
 .ddl-small-width{
     width: 100px;
 }
+
+#spinner{
+    font-size: 50px;
+    position: fixed;
+    z-index: 10001;
+    left: 47%;
+    top: 50%;
+   
+}
+.spinnerColor{
+    color: rgb(34, 133, 136) !important;
+
+}
+
+#bgDiv{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 1000;
+    opacity: 0.6;
+    
+}

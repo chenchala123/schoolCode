@@ -8,11 +8,11 @@ angular.module('schoolApp')
                     transformRequest: angular.identity,
                     headers: { 'Content-Type': undefined, 'Process-Data': false }
                 })
-                .then(function(data) {
-                    sucessCB(data);
+                .then(function(res) {
+                    sucessCB(res);
                     _self.hideLoader();
-                }, function(data) {
-                    errorCB(data);
+                }, function(res) {
+                    errorCB(res);
                     _self.hideLoader();
                 });
         };
@@ -33,11 +33,11 @@ angular.module('schoolApp')
                 }
             };
 
-            $http(reqObj).then(function(data) {
-                sucessCB(data);
+            $http(reqObj).then(function(res) {
+                sucessCB(res.data);
                 _self.hideLoader();
-            }, function(data) {
-                errorCB(data);
+            }, function(res) {
+                errorCB(res.data);
                 _self.hideLoader();
             });
         };
