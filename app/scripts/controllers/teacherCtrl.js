@@ -108,6 +108,8 @@ angular.module('schoolApp')
             ServerCall.getData('teacher/teacherObject', 'GET', '', empListSuccess, empListError);
 
         }
+
+
         $timeout(function() {
             $('#teacherRegistrationForm').validate({
                 rules: {
@@ -123,20 +125,6 @@ angular.module('schoolApp')
                     'Password': 'required',
                     'cpwd': 'required',
                     'date': 'required',
-                    'type': 'required',
-                    'phoneNumber': {
-                        'required': true,
-                        'minlength': 10,
-                        'maxlength': 10
-
-                    },
-                    'type1': 'required',
-                    'Address': 'required',
-                    'Address1': 'required',
-                    'City': 'required',
-                    'State': 'required',
-                    'country': 'required',
-                    'PostalCode': 'required',
                     'question': 'required',
                     'Answer': 'required',
                     'question1': 'required',
@@ -157,19 +145,6 @@ angular.module('schoolApp')
                     'password': 'Please Enter Password',
                     'cpwd': 'Please Enter Confirm Password',
                     'date': 'Please Enter Date',
-                    'type': 'please select Type',
-                    'phoneNumber': {
-                        'required': "Please Enter Phone Number",
-                        'minlength': "Phone number should be 10 numbers",
-                        'maxlength': "Don't exceed more that 10 numbers"
-                    },
-                    'type1': 'please select Type',
-                    'Address': 'Please Enter Address',
-                    'Address': 'Please Enter Address',
-                    'City': 'Please Enter City',
-                    'State': 'Please Enter State',
-                    'country': 'please select country',
-                    'PostalCode': 'Please Enter Postalcode',
                     'question': 'Select Question',
                     'Answer': 'Please Enter Answer',
                     'question1': 'Select Question',
