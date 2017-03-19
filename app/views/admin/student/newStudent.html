@@ -8,7 +8,8 @@
                 <label>First Name:</label>
             </div>
             <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" ng-model="firstName">
+                <input type="text" class="form-control txt-width" ng-model="firstName" 
+                name="firstName" placeholder="First Name">
             </div>
         </div>
     </div>
@@ -18,7 +19,8 @@
                 <label>Last Name:</label>
             </div>
             <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" ng-model="lastName">
+                <input type="text" class="form-control txt-width" ng-model="lastName"
+                name="lastName" placeholder="Last Name">
             </div>
         </div>
     </div>
@@ -28,7 +30,8 @@
                 <label>Parent Email:</label>
             </div>
             <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" ng-model="parentEmail">
+                <input type="text" class="form-control txt-width" ng-model="parentEmail" 
+                name="parentEmail" placeholder="Parent Email">
             </div>
         </div>
     </div>
@@ -38,7 +41,8 @@
                 <label>Roll Number:</label>
             </div>
             <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" ng-model="rollNo">
+                <input type="text" class="form-control txt-width" ng-model="rollNo"
+                name="rollNumber" placeholder="Roll Number">
             </div>
         </div>
     </div>
@@ -48,7 +52,7 @@
                 <label>Class:</label>
             </div>
             <div class="col-sm-7">
-                <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()">
+                <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()" name="class">
                     <option value="">Select Class</option>
                     <option ng-repeat="classObj in classList" value="{{classObj}}">{{classObj}}</option>
                 </select>
