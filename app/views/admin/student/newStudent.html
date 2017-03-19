@@ -1,97 +1,97 @@
 <div class="row off-set-menu m-b-100px">
-    <div class="form-group">
-        <h4>STUDENT REGISTRATION:</h4>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>First Name:</label>
-            </div>
-            <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" ng-model="firstName" 
-                name="firstName" placeholder="First Name">
+    <form id="studentRegistration">
+        <div class="form-group">
+            <h4>STUDENT REGISTRATION:</h4>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                   
+                <div class="col-sm-5 text-right"> <label>First Name:</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control txt-width" ng-model="firstName" name="firstName" placeholder="First Name">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Last Name:</label>
-            </div>
-            <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" ng-model="lastName"
-                name="lastName" placeholder="Last Name">
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Parent Email:</label>
-            </div>
-            <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" ng-model="parentEmail" 
-                name="parentEmail" placeholder="Parent Email">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Last Name:</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control txt-width" ng-model="lastName" name="lastName" placeholder="Last Name">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Roll Number:</label>
-            </div>
-            <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" ng-model="rollNo"
-                name="rollNumber" placeholder="Roll Number">
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Class:</label>
-            </div>
-            <div class="col-sm-7">
-                <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()" name="class">
-                    <option value="">Select Class</option>
-                    <option ng-repeat="classObj in classList" value="{{classObj}}">{{classObj}}</option>
-                </select>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Parent Email:</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control txt-width" ng-model="parentEmail" name="parentEmail" placeholder="Parent Email">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Date Of Birth:</label>
-            </div>
-            <div class="col-sm-7">
-                <past-date past-date="dob"> </past-date>
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Gender:</label>
-            </div>
-            <div class="col-sm-7">
-                <input type="radio" value="male" name="gender" ng-model="gender"><span class="m-l-10px">Male</span> <input type="radio" name="gender" value="female" ng-model="gender"><span class="m-l-10px">FeMale</span>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Roll Number:</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control txt-width" ng-model="rollNo" name="rollNumber" placeholder="Roll Number">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Image Upload:</label>
-            </div>
-            <div class="col-sm-7">
-                 <input type ="file"   ng-model="stdImg" name="stdImg" file-model="stdImg">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Class:</label>
+                </div>
+                <div class="col-sm-7">
+                    <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()" name="class">
+                        <option value="">Select Class</option>
+                        <option ng-repeat="classObj in classList" value="{{classObj}}">{{classObj}}</option>
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="row text-center">
-            <input type="button" class="btn btn-primary" ng-click="fnRegisterStudent()" value="Submit"><input type="button" class="btn btn-primary m-l-10px" value="Reset">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Date Of Birth:</label>
+                </div>
+                <div class="col-sm-7">
+                    <past-date past-date="dob" name="dob"> </past-date>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Gender:</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="radio" value="male" name="gender" ng-model="gender"><span class="m-l-10px">Male</span>
+                    <input type="radio" name="gender" value="female" ng-model="gender"><span class="m-l-10px">FeMale</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Image Upload:</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="file" ng-model="stdImg" name="stdImg" file-model="stdImg">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row text-center">
+                <input type="button" class="btn btn-primary" ng-click="fnRegisterStudent()" value="Submit">
+                <input type="button" class="btn btn-primary m-l-10px" value="Reset">
+            </div>
+        </div>
+    </form>
 </div>

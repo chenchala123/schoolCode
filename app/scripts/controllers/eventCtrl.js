@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('schoolApp')
-    .controller('EventCtrl', function($scope, $rootScope, CommonService, ServerCall) {
+    .controller('EventCtrl', function($scope,$timeout, $rootScope, CommonService, ServerCall) {
         $scope.classList = CommonService.getClassList();
 
         $scope.eventSources = [];
@@ -45,11 +45,11 @@ angular.module('schoolApp')
         $scope.addEvent = function() {
             var dataObj = {
                 "EventID": 0,
-                "EventName": $scope.eventName, 
+                "EventName": $scope.eventName,
                 "Date": new Date($scope.eventdate),
-                "Description": $scope.description, 
+                "Description": $scope.description,
                 "EventTypeID": $scope.eventType,
-                "ClassID": $scope.selClass, 
+                "ClassID": $scope.selClass,
                 "Class": null
             }
             ServerCall.getData('event', 'POST', dataObj, addEventSuccess, addEventError);
@@ -73,8 +73,34 @@ angular.module('schoolApp')
         var eventsListError = function(res) {
             debugger;
         }
-        $scope.getEvents=function(){
-            ServerCall.getData('event/events/'+$scope.month+'/'+$scope.year+'/'+$scope.classId, 'GET', '', eventsListSuccess, eventsListError);
+        $scope.getEvents = function() {
+            ServerCall.getData('event/events/' + $scope.month + '/' + $scope.year + '/' + $scope.classId, 'GET', '', eventsListSuccess, eventsListError);
         }
+        $scope.fnAddEvent=function(){
+             if ($('#EventRegistration').valid()) {
+                
+             }
+        }
+
+        $timeout(function() {
+            $('#EventRegistration').validate({
+                rules: {
+                    'class': 'required',
+                    'Date': 'required',
+                    'type': 'required',
+                    'eventName': 'required',
+                    'venue': 'required',
+                    'description': 'required'
+                },
+                messages: {
+                    'class': 'Please Select Class',
+                    'Date': 'Please Select Date',
+                    'type': 'Please Select type',
+                    'eventName': 'Please Enter Event',
+                    'venue': 'Please Enter venue',
+                    'description': 'Please Enter Description'
+                }
+            });
+        }, 1000);
 
     });

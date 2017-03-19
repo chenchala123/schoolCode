@@ -2,246 +2,247 @@
     <div class="form-group">
         <h4>TEACHER REGISTRATION:</h4>
     </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>First Name:</label>
-            </div>
-            <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" placeholder="First Name" name="firstName" ng-model="firstName">
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Last Name:</label>
-            </div>
-            <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" placeholder="Last Name" name="lastName" ng-model="lastName">
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label> Email:</label>
-            </div>
-            <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" placeholder="Email" name="Email" ng-model="parentEmail">
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Password:</label>
-            </div>
-            <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" placeholder="Password" name="pwd" ng-model="pwd">
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Confirm Password:</label>
-            </div>
-            <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" placeholder="Confirm Password" name="cpwd" ng-model="cpwd">
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Date Of Birth:</label>
-            </div>
-            <div class="col-sm-7">
-                <past-date past-date="dob"> </past-date>
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Gender:</label>
-            </div>
-            <div class="col-sm-7">
-                <input type="radio" value="male" name="gender" ng-model="gender"><span class="m-l-10px">Male</span>
-                <input type="radio" name="gender" value="female" ng-model="gender"><span class="m-l-10px">FeMale</span>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row form-group" ng-repeat="phoneNumObj in phoneNumList track by $index">
-        <div class="m-l-27p col-sm-6 box-shadow-empPhone">
-            <div class="row form-group border-bottom">
-                <h4 class="p-l-15px">Phone Number {{phoneNumObj}}:</h4>
-                <a class="plus-pos" href ng-click="addPhoneNumbers()"><span class="glyphicon glyphicon-plus"></span></a>
-                <a class="trash-pos" href ng-show="phoneNumObj!=1" ng-click="deletePhoneNumbers($index)"><span class="glyphicon glyphicon-trash"></span></a>
-            </div>
-            <div class="row form-group">
-                <div class="col-sm-4 text-right">
-                    <label>Type:</label>
+    <form id="teacherRegistrationForm">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>First Name:</label>
                 </div>
-                <div class="col-sm-8">
-                    <select class="form-control ddl-width" ng-model="phoneType[phoneNumObj]">
-                        <option value="">Select Type</option>
-                        <option value="home">Home</option>
-                        <option value="office">Office</option>
-                        <option value="mobile">Mobile</option>
-                        <option value="personal">Personal</option>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control txt-width" placeholder="First Name" name="firstName" ng-model="firstName">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Last Name:</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control txt-width" placeholder="Last Name" name="lastName" ng-model="lastName">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label> Email:</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control txt-width" placeholder="Email" name="Email" ng-model="parentEmail">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Password:</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control txt-width" placeholder="Password" name="Password" ng-model="pwd">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Confirm Password:</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control txt-width" placeholder="Confirm Password" name="cpwd" ng-model="cpwd">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Date Of Birth:</label>
+                </div>
+                <div class="col-sm-7">
+                    <past-date past-date="dob" name="date"> </past-date>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Gender:</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="radio" value="male" name="gender" ng-model="gender"><span class="m-l-10px">Male</span>
+                    <input type="radio" name="gender" value="female" ng-model="gender"><span class="m-l-10px">FeMale</span>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group" ng-repeat="phoneNumObj in phoneNumList track by $index">
+            <div class="m-l-27p col-sm-6 box-shadow-empPhone">
+                <div class="row form-group border-bottom">
+                    <h4 class="p-l-15px">Phone Number {{phoneNumObj}}:</h4>
+                    <a class="plus-pos" href ng-click="addPhoneNumbers()"><span class="glyphicon glyphicon-plus"></span></a>
+                    <a class="trash-pos" href ng-show="phoneNumObj!=1" ng-click="deletePhoneNumbers($index)"><span class="glyphicon glyphicon-trash"></span></a>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 text-right">
+                        <label>Type:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <select class="form-control ddl-width" name="type" ng-model="phoneType[phoneNumObj]">
+                            <option value="">Select Type</option>
+                            <option value="home">Home</option>
+                            <option value="office">Office</option>
+                            <option value="mobile">Mobile</option>
+                            <option value="personal">Personal</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 text-right">
+                        <label>Phone Number:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control txt-width" placeholder="Phone Number" name="phoneNumber" ng-model="phoneNumber[phoneNumObj]">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group" ng-repeat="addObj in addList track by $index">
+            <div class="m-l-27p col-sm-6 box-shadow-empAdd">
+                <div class="row form-group border-bottom">
+                    <h4 class="p-l-15px">Address {{addObj}}:</h4>
+                    <a class="plus-pos" href ng-click="addAddress()"><span class="glyphicon glyphicon-plus"></span></a>
+                    <a class="trash-pos" href ng-show="addObj!=1" ng-click="deleteAddress($index)"><span class="glyphicon glyphicon-trash"></span></a>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 text-right">
+                        <label>Type:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <select class="form-control ddl-width" name="type1" ng-model="addType[addObj]">
+                            <option value="">Select Type</option>
+                            <option value="homeadd">Home Address</option>
+                            <option value="currentadd">Current Address</option>
+                            <option value="perminentadd">Perminent Address</option>
+                            <option value="officeadd">Office Address</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 text-right">
+                        <label>Address Line1:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control txt-width" placeholder="Address" name="Address" ng-model="addline1[addObj]">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 text-right">
+                        <label>Address Line2:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control txt-width" placeholder="Address" name="Address1" ng-model="addline2[addObj]">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 text-right">
+                        <label>City:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control txt-width" placeholder="City" name="City" ng-model="addCity[addObj]">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 text-right">
+                        <label>State:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control txt-width" placeholder="State" name="State" ng-model="addState[addObj]">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 text-right">
+                        <label>Country:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <select class="form-control ddl-width" name="country" ng-model="addCountry[addObj]">
+                            <option value="">Select Country</option>
+                            <option ng-repeat="countryObj in countryList" value="{{countryObj}}">{{countryObj}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 text-right">
+                        <label>Postel Code:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control txt-width" placeholder="Postal Code" name="PostalCode" ng-model="addPostalCode[addObj]">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Security Question1:</label>
+                </div>
+                <div class="col-sm-7">
+                    <select class="form-control ddl-width" ng-model="selClass" name="question" ng-change="getStudentsList()">
+                        <option value="">select question</option>
+                        <option ng-repeat="queObj in queList" value="{{queObj}}">{{queObj}}</option>
                     </select>
                 </div>
             </div>
-            <div class="row form-group">
-                <div class="col-sm-4 text-right">
-                    <label>Phone Number:</label>
-                </div>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control txt-width" placeholder="Phone Number" name="phoneNumber" ng-model="phoneNumber[phoneNumObj]">
-                </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-5 text-right">
+                <label>Answer:</label>
+            </div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer" ng-model="phoneNo">
             </div>
         </div>
-    </div>
-    <div class="row form-group" ng-repeat="addObj in addList track by $index">
-        <div class="m-l-27p col-sm-6 box-shadow-empAdd">
-            <div class="row form-group border-bottom">
-                <h4 class="p-l-15px">Address {{addObj}}:</h4>
-                <a class="plus-pos" href ng-click="addAddress()"><span class="glyphicon glyphicon-plus"></span></a>
-                <a class="trash-pos" href ng-show="addObj!=1" ng-click="deleteAddress($index)"><span class="glyphicon glyphicon-trash"></span></a>
-            </div>
-            <div class="row form-group">
-                <div class="col-sm-4 text-right">
-                    <label>Type:</label>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Security Question2:</label>
                 </div>
-                <div class="col-sm-8">
-                    <select class="form-control ddl-width" ng-model="addType[addObj]">
-                        <option value="">Select Type</option>
-                        <option value="homeadd">Home Address</option>
-                        <option value="currentadd">Current Address</option>
-                        <option value="perminentadd">Perminent Address</option>
-                        <option value="officeadd">Office Address</option>
+                <div class="col-sm-7">
+                    <select class="form-control ddl-width" ng-model="selClass" name="question1" ng-change="getStudentsList()">
+                        <option value="">select question</option>
+                        <option ng-repeat="queObj in queList" value="{{queObj}}">{{queObj}}</option>
                     </select>
                 </div>
             </div>
-            <div class="row form-group">
-                <div class="col-sm-4 text-right">
-                    <label>Address Line1:</label>
-                </div>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control txt-width" placeholder="Address" name="Address" ng-model="addline1[addObj]">
-                </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-5 text-right">
+                <label>Answer:</label>
             </div>
-            <div class="row form-group">
-                <div class="col-sm-4 text-right">
-                    <label>Address Line2:</label>
-                </div>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control txt-width" placeholder="Address" name="Address" ng-model="addline2[addObj]">
-                </div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer1" ng-model="phoneNo">
             </div>
-            <div class="row form-group">
-                <div class="col-sm-4 text-right">
-                    <label>City:</label>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-5 text-right">
+                    <label>Security Question3:</label>
                 </div>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control txt-width" placeholder="City" name="City" ng-model="addCity[addObj]">
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-sm-4 text-right">
-                    <label>State:</label>
-                </div>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control txt-width" placeholder="State" name="City" ng-model="addState[addObj]">
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-sm-4 text-right">
-                    <label>Country:</label>
-                </div>
-                <div class="col-sm-8">
-                    <select class="form-control ddl-width" ng-model="addCountry[addObj]" >
-                        <option value="">Select Country</option>
-                        <option ng-repeat="countryObj in countryList" value="{{countryObj}}">{{countryObj}}</option>
+                <div class="col-sm-7">
+                    <select class="form-control ddl-width" ng-model="selClass" name="question2" ng-change="getStudentsList()">
+                        <option value="">select question</option>
+                        <option ng-repeat="queObj in queList" value="{{queObj}}">{{queObj}}</option>
                     </select>
                 </div>
             </div>
-            <div class="row form-group">
-                <div class="col-sm-4 text-right">
-                    <label>Postel Code:</label>
-                </div>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control txt-width" placeholder="Postal Code" name="PostalCode" ng-model="addPostalCode[addObj]">
-                </div>
-            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
+        <div class="row form-group">
             <div class="col-sm-5 text-right">
-                <label>Security Question1:</label>
+                <label>Answer:</label>
             </div>
             <div class="col-sm-7">
-                <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()">
-                    <option value="">select question</option>
-                    <option ng-repeat="queObj in queList" value="{{queObj}}">{{queObj}}</option>
-                </select>
+                <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer2" ng-model="phoneNo">
             </div>
         </div>
-    </div>
-    <div class="row form-group">
-        <div class="col-sm-5 text-right">
-            <label>Answer:</label>
-        </div>
-        <div class="col-sm-7">
-            <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer" ng-model="phoneNo">
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Security Question2:</label>
-            </div>
-            <div class="col-sm-7">
-                <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()">
-                    <option value="">select question</option>
-                    <option ng-repeat="queObj in queList" value="{{queObj}}">{{queObj}}</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="row form-group">
-        <div class="col-sm-5 text-right">
-            <label>Answer:</label>
-        </div>
-        <div class="col-sm-7">
-            <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer" ng-model="phoneNo">
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-5 text-right">
-                <label>Security Question3:</label>
-            </div>
-            <div class="col-sm-7">
-                <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()">
-                    <option value="">select question</option>
-                    <option ng-repeat="queObj in queList" value="{{queObj}}">{{queObj}}</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="row form-group">
-        <div class="col-sm-5 text-right"> 
-            <label>Answer:</label>
-        </div>
-        <div class="col-sm-7">
-            <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer" ng-model="phoneNo">
-        </div>
-    </div>
+    </form>
     <div class="form-group">
         <div class="row text-center">
             <input type="button" ng-click="fnRegisterEmployee()" class="btn btn-primary" value="Submit">

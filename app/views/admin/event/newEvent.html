@@ -1,4 +1,5 @@
 <div class="row off-set-menu m-b-100px">
+<form id="EventRegistration">
     <div class="form-group">
         <h4>HOST AN EVENT :</h4>
     </div>
@@ -8,7 +9,7 @@
                 <label>Class:</label>
             </div>
             <div class="col-sm-7">
-               <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()">
+               <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()" name="class">
                     <option value="">Select Class</option>
                     <option ng-repeat="classObj in classList" value="{{classObj}}">{{classObj}}</option>
                 </select>
@@ -21,7 +22,7 @@
                 <label>Event Date:</label>
             </div>
             <div class="col-sm-7">
-                <feature-date fdate="eventdate"> </feature-date>
+                <feature-date fdate="eventdate" name="Date"> </feature-date>
             </div>
         </div>
     </div>
@@ -31,7 +32,7 @@
                 <label>Event Type:</label>
             </div>
             <div class="col-sm-7">
-                <select class="form-control ddl-width" ng-model="eventType">
+                <select class="form-control ddl-width" ng-model="eventType" name="type">
                     <option value="">Select Event</option>
                     <option ng-repeat="eveObj in eventsList" value="{{classObj}}">{{eveObj}}</option>
                 </select>
@@ -45,7 +46,7 @@
             </div>
             <div class="col-sm-7">
                 <input type="text" class="form-control txt-width" ng-model="eventName" 
-                name="event" placeholder="Event">
+                name="eventName" placeholder="Event">
             </div>
         </div>
     </div>
@@ -66,14 +67,15 @@
                 <label>Description:</label>
             </div>
             <div class="col-sm-7">
-                <textarea rows="4" cols="22" ng-model="description" class="form-control txt-width" ></textarea>
+                <textarea rows="4" cols="22" ng-model="description" class="form-control txt-width" name="description"></textarea>
             </div>
         </div>
     </div>
     <div class="form-group">
         <div class="row text-center">
-            <input type="button" class="btn btn-primary" value="Submit">
+            <input type="button" class="btn btn-primary" ng-click="fnAddEvent()" value="Submit">
             <input type="button" class="btn btn-primary m-l-10px" value="Reset">
         </div>
     </div>
+    </form>
 </div>

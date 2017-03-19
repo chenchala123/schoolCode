@@ -2,13 +2,14 @@
     <div class="form-group">
         <h4>PAYMENT:</h4>
     </div>
+    <form id="paymentForm">
     <div class="form-group">
         <div class="row">
             <div class="col-sm-5 text-right">
                 <label>Class:</label>
             </div>
             <div class="col-sm-7">
-                <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()">
+                <select class="form-control ddl-width" ng-model="selClass" name="slectclass" ng-change="getStudentsList()">
                     <option value="">Select Class</option>
                     <option ng-repeat="classObj in classList" value="{{classObj}}">{{classObj}}</option>
                 </select>
@@ -21,7 +22,7 @@
                 <label>Student:</label>
             </div>
             <div class="col-sm-7">
-                <select class="form-control ddl-width" ng-model="selClass" ">
+                <select class="form-control ddl-width" name="selstudent" ng-model="selstudent" ">
                     <option value="">Select Student</option>
                     <option ng-repeat="stdObj in stdList" value="{{classObj}}">{{stdObj}}</option>
                 </select>
@@ -44,8 +45,12 @@
                 <label>Amount</label>
             </div>
             <div class="col-sm-7">
+<<<<<<< HEAD
                 <input type="text" class="form-control txt-width" ng-model="amount" 
                 name="amount" placeholder="Amount">
+=======
+                <input type="text" class="form-control txt-width" name="amount" ng-model="amount">
+>>>>>>> 17dda92eb46d66ec035a6857d814c8d2938aa3b0
             </div>
         </div>
     </div>
@@ -55,8 +60,13 @@
                 <label>Payment Type:</label>
             </div>
             <div class="col-sm-7">
+<<<<<<< HEAD
                 <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()">
                     <option value="">Select Type</option>
+=======
+                <select class="form-control ddl-width" ng-model="selpayment" name="paymenttype" ng-change="getStudentsList()">
+                 <option value="">Select Payment</option>
+>>>>>>> 17dda92eb46d66ec035a6857d814c8d2938aa3b0
                     <option value="cash">Cash</option>
                     <option value="card">Card</option>
                 </select>
@@ -71,14 +81,15 @@
                 <label>Date:</label>
             </div>
             <div class="col-sm-7">
-                <cur-date sel-date="date"> </cur-date>
+                <cur-date sel-date="date" name="date"> </cur-date>
             </div>
         </div>
     </div>
+    </form>
     
     <div class="form-group">
         <div class="row text-center">
-            <input type="button" class="btn btn-primary" value="Submit"><input type="button" class="btn btn-primary m-l-10px" value="Reset">
+            <input type="button" class="btn btn-primary"  ng-click="fnPayment()" value="Submit"><input type="button" class="btn btn-primary m-l-10px" value="Reset">
         </div>
     </div>
 </div>

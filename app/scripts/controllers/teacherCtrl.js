@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('schoolApp')
-    .controller('TeacherCtrl', function($scope,$rootScope,ServerCall,CommonService) {
+    .controller('TeacherCtrl', function($scope, $rootScope, $timeout, ServerCall, CommonService) {
         $scope.gender = 'male';
         $scope.phoneNumList = [1];
         $scope.addList = [1];
@@ -14,8 +14,8 @@ angular.module('schoolApp')
         $scope.addState = {};
         $scope.addCountry = {};
         $scope.addPostalCode = {};
-        $rootScope.$on('teachersList',function(){
-             $scope.fnEmployeeList();
+        $rootScope.$on('teachersList', function() {
+            $scope.fnEmployeeList();
         });
         $scope.addPhoneNumbers = function() {
             var count = $scope.phoneNumList.length;
@@ -63,35 +63,43 @@ angular.module('schoolApp')
             $scope.addCountry = _tempCountry;
             $scope.addPostalCode = _tempPostal;
         };
+
+
         $scope.fnRegisterEmployee = function() {
-            var phoneNumersArr = [],
-                addArr = [];
-            for (var i = 1; i <= $scope.phoneNumList.length; i++) {
-                var _tempObj = {
-                    "PhoneTypeID": $scope.phoneType[i],
-                    "PhoneNumber": $scope.phoneNumber[i],
-                    "PhoneExt": null
+
+            if ($('#teacherRegistrationForm').valid()) {
+                var phoneNumersArr = [],
+                    addArr = [];
+                for (var i = 1; i <= $scope.phoneNumList.length; i++) {
+                    var _tempObj = {
+                        "PhoneTypeID": $scope.phoneType[i],
+                        "PhoneNumber": $scope.phoneNumber[i],
+                        "PhoneExt": null
+                    }
+                    phoneNumersArr.push(_tempObj);
                 }
-                phoneNumersArr.push(_tempObj);
-            }
-            for (var i = 1; i <= $scope.addList.length; i++) {
-                var _tempObj = {
-                    "AddressTypeID": $scope.addType[i],
-                    "Address1": $scope.addline1[i],
-                    "Address2": $scope.addline2[i],
-                    "City": $scope.addCity[i],
-                    "State": $scope.addState[i],
-                    "CountryID": $scope.addCountry[i],
-                    "PostalCode": $scope.addPostalCode[i]
+                for (var i = 1; i <= $scope.addList.length; i++) {
+                    var _tempObj = {
+                        "AddressTypeID": $scope.addType[i],
+                        "Address1": $scope.addline1[i],
+                        "Address2": $scope.addline2[i],
+                        "City": $scope.addCity[i],
+                        "State": $scope.addState[i],
+                        "CountryID": $scope.addCountry[i],
+                        "PostalCode": $scope.addPostalCode[i]
+                    }
+                    addArr.push(_tempObj);
+
                 }
-                addArr.push(_tempObj);
             }
 
+
+
         };
-       
+
         var empListSuccess = function(res) {
-                $scope.empList = res;
-            }
+            $scope.empList = res;
+        }
         var empListError = function(res) {
             debugger;
         }
@@ -100,6 +108,77 @@ angular.module('schoolApp')
             ServerCall.getData('teacher/teacherObject', 'GET', '', empListSuccess, empListError);
 
         }
+        $timeout(function() {
+            $('#teacherRegistrationForm').validate({
+                rules: {
+                    'firstName': 'required',
+                    'lastName': 'required',
+
+                    'Email': {
+
+                        'required': true,
+                        'email': true
+
+                    },
+                    'Password': 'required',
+                    'cpwd': 'required',
+                    'date': 'required',
+                    'type': 'required',
+                    'phoneNumber': {
+                        'required': true,
+                        'minlength': 10,
+                        'maxlength': 10
+
+                    },
+                    'type1': 'required',
+                    'Address': 'required',
+                    'Address1': 'required',
+                    'City': 'required',
+                    'State': 'required',
+                    'country': 'required',
+                    'PostalCode': 'required',
+                    'question': 'required',
+                    'Answer': 'required',
+                    'question1': 'required',
+                    'Answer1': 'required',
+                    'question2': 'required',
+                    'Answer2': 'required',
+
+                },
+                messages: {
+                    'firstName': 'Please Enter First Name',
+                    'lastName': 'Please Enter First Name',
+                    'Email': {
+                        'required': "Please Enter Email",
+                        'email': 'Please Enter User Email'
+                    },
+
+
+                    'password': 'Please Enter Password',
+                    'cpwd': 'Please Enter Confirm Password',
+                    'date': 'Please Enter Date',
+                    'type': 'please select Type',
+                    'phoneNumber': {
+                        'required': "Please Enter Phone Number",
+                        'minlength': "Phone number should be 10 numbers",
+                        'maxlength': "Don't exceed more that 10 numbers"
+                    },
+                    'type1': 'please select Type',
+                    'Address': 'Please Enter Address',
+                    'Address': 'Please Enter Address',
+                    'City': 'Please Enter City',
+                    'State': 'Please Enter State',
+                    'country': 'please select country',
+                    'PostalCode': 'Please Enter Postalcode',
+                    'question': 'Select Question',
+                    'Answer': 'Please Enter Answer',
+                    'question1': 'Select Question',
+                    'Answer': 'Please Enter Answer',
+                    'question2': 'Select Question',
+                    'Answer': 'Please Enter Answer'
+                }
+            });
+        }, 1000);
     });
 
 
