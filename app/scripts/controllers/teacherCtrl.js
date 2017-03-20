@@ -42,17 +42,17 @@ angular.module('schoolApp')
         $scope.deleteAddress = function(delItem) {
             $scope.addList.splice(delItem, 1);
             var _tempList = [],
-                _tempAddType, _tempAdd1, _tempAdd2, _tempCity, _tempState, _tempCountry, _tempPostal;
+                _tempAddType={}, _tempAdd1={}, _tempAdd2={}, _tempCity={}, _tempState={}, _tempCountry={}, _tempPostal={};
 
-            for (var i = 1; i <= $scope.addList.length; i++) {
-                _tempList.push(i);
+            for (var i = 0; i < $scope.addList.length; i++) {
+                _tempList.push(i+1);
                 _tempAddType[i + 1] = $scope.addType[$scope.addList[i]];
                 _tempAdd1[i + 1] = $scope.addline1[$scope.addList[i]];
                 _tempAdd2[i + 1] = $scope.addline2[$scope.addList[i]];
                 _tempCity[i + 1] = $scope.addCity[$scope.addList[i]];
-                _tempState[i + 1] = $scope.state[$scope.addList[i]];
                 _tempCountry[i + 1] = $scope.addCountry[$scope.addList[i]];
                 _tempPostal[i + 1] = $scope.addPostalCode[$scope.addList[i]];
+                 _tempState[i + 1] = $scope.addState[$scope.addList[i]];
             }
             $scope.addList = _tempList;
             $scope.addType = _tempAddType;

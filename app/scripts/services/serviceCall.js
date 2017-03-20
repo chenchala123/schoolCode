@@ -22,8 +22,9 @@ angular.module('schoolApp')
     .service('ServerCall', function($http) {
         var _self = this;
         _self.globalURL = "http://www.schooldiaryonline.com/api/";
-        _self.token=sessionStorage.getItem('token');
+       
         _self.getData = function(path, method, data, sucessCB, errorCB) {
+             _self.token=sessionStorage.getItem('token');
             $('#spinner').css("display", "block");
             $('#bigDiv').css('display', 'block');
 
