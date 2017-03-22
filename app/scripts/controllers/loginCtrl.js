@@ -19,7 +19,6 @@ angular.module('schoolApp')
                 }]
             }
             var sucLoginCB = function(res) {
-                debugger;
                 if(res.Sucess==true){
                      sessionStorage.setItem('token',res.Token);
                      $rootScope.$broadcast('loggedIn', {});

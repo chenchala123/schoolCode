@@ -3,7 +3,8 @@ angular.module('schoolApp')
     .service('CommonService', function($http,ServerCall) {
         var _self = this;
         _self.getClassList = function() {
-            var classList = JSON.parse(sessionStorage.getItem('classList'));
+            var classList=sessionStorage.getItem('classList');
+            
             if (classList == null) {
                 ServerCall.getData('lookup/class', 'GET', '', function(data) {
                     debugger;
@@ -13,6 +14,8 @@ angular.module('schoolApp')
                 }, function(data) {
                     debugger;
                 });
+            }else{
+                 classList = JSON.parse(sessionStorage.getItem('classList'));
             }
             return classList;
         }

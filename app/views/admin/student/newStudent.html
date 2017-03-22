@@ -49,9 +49,9 @@
                     <label>Class:</label>
                 </div>
                 <div class="col-sm-7">
-                    <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()" name="class">
+                    <select class="form-control ddl-width" ng-model="selClass"  name="class">
                         <option value="">Select Class</option>
-                        <option ng-repeat="classObj in classList" value="{{classObj}}">{{classObj}}</option>
+                        <option ng-repeat="classObj in classList" value="{{classObj.ClassID}}">{{classObj.Class}}</option>
                     </select>
                 </div>
             </div>

@@ -8,7 +8,7 @@
  * Released under the MIT license:
  *   http://www.opensource.org/licenses/mit-license.php
  */
-
+'use strict';
 (function($) {
 
 $.extend($.fn, {
