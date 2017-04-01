@@ -14,6 +14,19 @@ angular.module('schoolApp')
         $scope.addState = {};
         $scope.addCountry = {};
         $scope.addPostalCode = {};
+        
+        $scope.constants=sessionStorage.getItem('constantsData');
+        if( $scope.constants==null){
+            var constantSuccCB=function(data){
+                $scope.constants=data;
+            }
+            var ConstantErrCB=function(data){
+                $scope.constants=data;
+            }
+             $scope.constants=CommonService.getConstantData(constantSuccCB,ConstantErrCB);
+            }else{
+                $scope.constants=JSON.parse($scope.constants);
+            }
         $rootScope.$on('teachersList', function() {
             $scope.fnEmployeeList();
         });
@@ -42,17 +55,23 @@ angular.module('schoolApp')
         $scope.deleteAddress = function(delItem) {
             $scope.addList.splice(delItem, 1);
             var _tempList = [],
-                _tempAddType={}, _tempAdd1={}, _tempAdd2={}, _tempCity={}, _tempState={}, _tempCountry={}, _tempPostal={};
+                _tempAddType = {},
+                _tempAdd1 = {},
+                _tempAdd2 = {},
+                _tempCity = {},
+                _tempState = {},
+                _tempCountry = {},
+                _tempPostal = {};
 
             for (var i = 0; i < $scope.addList.length; i++) {
-                _tempList.push(i+1);
+                _tempList.push(i + 1);
                 _tempAddType[i + 1] = $scope.addType[$scope.addList[i]];
                 _tempAdd1[i + 1] = $scope.addline1[$scope.addList[i]];
                 _tempAdd2[i + 1] = $scope.addline2[$scope.addList[i]];
                 _tempCity[i + 1] = $scope.addCity[$scope.addList[i]];
                 _tempCountry[i + 1] = $scope.addCountry[$scope.addList[i]];
                 _tempPostal[i + 1] = $scope.addPostalCode[$scope.addList[i]];
-                 _tempState[i + 1] = $scope.addState[$scope.addList[i]];
+                _tempState[i + 1] = $scope.addState[$scope.addList[i]];
             }
             $scope.addList = _tempList;
             $scope.addType = _tempAddType;
@@ -108,7 +127,48 @@ angular.module('schoolApp')
             ServerCall.getData('teacher/teacherObject', 'GET', '', empListSuccess, empListError);
 
         }
+        $scope.fnRegisterEmployee = function() {
+            var _oTheme = {
+                "BoxedLayout": false,
+                "FixedHeader": false,
+                "FixedSidebar": false,
+                "ClosedSideBar": false,
+                "HeaderColour": null,
+                "SideBarColour": null,
+            }
+            var _aAddress = [{
+                "AddressTypeID": 0,
+                "Address1": null,
+                "Address2": null,
+                "City": null,
+                "State": null,
+                "CountryID": 0,
+                "PostalCode": null
+            }]
+            var _aPhone = [{
+                "PhoneTypeID": 0,
+                "PhoneNumber": null,
+                "PhoneExt": null
+            }];
+            var _aSecurityQues = [{
+                "SecurityAnswer": null,
+                "SecurityQuestionID": null
+            }]
 
+            var dataObj = {
+                "Theme": _oTheme,
+                "Email": null,
+                "Password": null,
+                "FirstName": null,
+                "LastName": null,
+                "Gender": false,
+                "DateOfBirth": null,
+                "Image": null,
+                "Address": _aAddress,
+                "Phone": _aPhone ,
+                "Security": _aSecurityQues
+            }
+        }
 
         $timeout(function() {
             $('#teacherRegistrationForm').validate({

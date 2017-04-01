@@ -3,7 +3,7 @@
         <h4>STUDENT LIST:</h4>
     </div>
 <div class="form-group">
- <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList()" name="class">
+ <select class="form-control ddl-width" ng-model="selClass" ng-change="getStudentsList(selClass)" name="class">
                         <option value="">Select Class</option>
                         <option ng-repeat="classObj in classList" value="{{classObj.ClassID}}">{{classObj.Class}}</option>
                     </select>

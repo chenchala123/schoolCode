@@ -7,9 +7,15 @@ angular.module('schoolApp')
             $scope.isAdminLoggedIn = true;
         }
 
-        $rootScope.$on('loggedIn', function() {
-            $location.path('/admin/dashboard');
-            $scope.isAdminLoggedIn = true;
+        $rootScope.$on('loggedIn', function(eve,data) {
+            debugger;
+            if(data==true){
+                $location.path('/admin/dashboard');
+                $scope.isAdminLoggedIn = true;
+            }else{
+                $scope.isAdminLoggedIn = false;
+                 $location.path('/login');
+            }
         });
 
 
@@ -148,9 +154,9 @@ angular.module('schoolApp')
                         $modalInstance.close();
                     }
                     var sucCB = function(res) {
-                        debugger;
-                        $locaton.path('/');
-                        sessionStorage.removeItem('token');
+                        sessionStorage.clear();
+                        $scope.close();
+                        $rootScope.$broadcast('loggedIn',false);
                     }
                     var errCB = function(res) {
                         

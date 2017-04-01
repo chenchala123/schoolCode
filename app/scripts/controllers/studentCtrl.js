@@ -2,18 +2,31 @@
 
 angular.module('schoolApp')
     .controller('StudentCtrl', function($scope, $timeout, ServerCall, fileUpload, CommonService) {
+        
         $scope.gender = 'male';
         $scope.classList = CommonService.getClassList();
+        $scope.constants=sessionStorage.getItem('constantsData');
+        if( $scope.constants==null){
+            var constantSuccCB=function(data){
+                $scope.constants=data;
+            }
+            var ConstantErrCB=function(data){
+                $scope.constants=data;
+            }
+             $scope.constants=CommonService.getConstantData(constantSuccCB,ConstantErrCB);
+            }else{
+                $scope.constants=JSON.parse($scope.constants);
+            }
         var stdListSuccess = function(res) {
+            debugger;
             $scope.stdList = res;
         }
         var stdListError = function(res) {
             debugger;
         }
         $scope.getStudentsList = function(selClassId) {
-
-            ServerCall.getData('student/' + selClassId, 'GET', '', stdListSuccess, stdListError);
-
+           
+            ServerCall.getData('student/class/' + selClassId, 'GET', '', stdListSuccess, stdListError);
         }
         var stdRegSuccess = function(res) {
 

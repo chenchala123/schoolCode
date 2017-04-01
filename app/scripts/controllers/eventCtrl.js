@@ -3,7 +3,18 @@
 angular.module('schoolApp')
     .controller('EventCtrl', function($scope,$timeout, $rootScope, CommonService, ServerCall) {
         $scope.classList = CommonService.getClassList();
-
+        $scope.constants=sessionStorage.getItem('constantsData');
+        if( $scope.constants==null){
+            var constantSuccCB=function(data){
+                $scope.constants=data;
+            }
+            var ConstantErrCB=function(data){
+                $scope.constants=data;
+            }
+             $scope.constants=CommonService.getConstantData(constantSuccCB,ConstantErrCB);
+            }else{
+                $scope.constants=JSON.parse($scope.constants);
+            }
         $scope.eventSources = [];
         $scope.uiConfig = {
             calendar: {
