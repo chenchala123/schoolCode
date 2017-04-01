@@ -7,6 +7,7 @@ angular.module('schoolApp')
         $scope.addList = [1];
         $scope.phoneType = {};
         $scope.phoneNumber = {};
+        $scope.extention = {};
         $scope.addType = {};
         $scope.addline1 = {};
         $scope.addline2 = {};
@@ -14,19 +15,19 @@ angular.module('schoolApp')
         $scope.addState = {};
         $scope.addCountry = {};
         $scope.addPostalCode = {};
-        
-        $scope.constants=sessionStorage.getItem('constantsData');
-        if( $scope.constants==null){
-            var constantSuccCB=function(data){
-                $scope.constants=data;
+
+        $scope.constants = sessionStorage.getItem('constantsData');
+        if ($scope.constants == null) {
+            var constantSuccCB = function(data) {
+                $scope.constants = data;
             }
-            var ConstantErrCB=function(data){
-                $scope.constants=data;
+            var ConstantErrCB = function(data) {
+                $scope.constants = data;
             }
-             $scope.constants=CommonService.getConstantData(constantSuccCB,ConstantErrCB);
-            }else{
-                $scope.constants=JSON.parse($scope.constants);
-            }
+            $scope.constants = CommonService.getConstantData(constantSuccCB, ConstantErrCB);
+        } else {
+            $scope.constants = JSON.parse($scope.constants);
+        }
         $rootScope.$on('teachersList', function() {
             $scope.fnEmployeeList();
         });
@@ -38,15 +39,18 @@ angular.module('schoolApp')
             $scope.phoneNumList.splice(delItem, 1);
             var _tempList = [],
                 _tempPhoneType = {},
-                _tempPhoneNumber = {};
+                _tempPhoneNumber = {},
+                _tempExtention = {};
             for (var i = 0; i < $scope.phoneNumList.length; i++) {
                 _tempList.push(i + 1);
                 _tempPhoneType[i + 1] = $scope.phoneType[$scope.phoneNumList[i]];
                 _tempPhoneNumber[i + 1] = $scope.phoneNumber[$scope.phoneNumList[i]];
+                _tempExtention[i + 1] = $scope.extention[$scope.phoneNumList[i]];
             }
             $scope.phoneNumList = _tempList;
             $scope.phoneType = _tempPhoneType;
             $scope.phoneNumber = _tempPhoneNumber;
+            $scope.extention = _tempExtention;
         };
         $scope.addAddress = function() {
             var count = $scope.addList.length;
@@ -84,38 +88,6 @@ angular.module('schoolApp')
         };
 
 
-        $scope.fnRegisterEmployee = function() {
-
-            if ($('#teacherRegistrationForm').valid()) {
-                var phoneNumersArr = [],
-                    addArr = [];
-                for (var i = 1; i <= $scope.phoneNumList.length; i++) {
-                    var _tempObj = {
-                        "PhoneTypeID": $scope.phoneType[i],
-                        "PhoneNumber": $scope.phoneNumber[i],
-                        "PhoneExt": null
-                    }
-                    phoneNumersArr.push(_tempObj);
-                }
-                for (var i = 1; i <= $scope.addList.length; i++) {
-                    var _tempObj = {
-                        "AddressTypeID": $scope.addType[i],
-                        "Address1": $scope.addline1[i],
-                        "Address2": $scope.addline2[i],
-                        "City": $scope.addCity[i],
-                        "State": $scope.addState[i],
-                        "CountryID": $scope.addCountry[i],
-                        "PostalCode": $scope.addPostalCode[i]
-                    }
-                    addArr.push(_tempObj);
-
-                }
-            }
-
-
-
-        };
-
         var empListSuccess = function(res) {
             $scope.empList = res;
         }
@@ -127,46 +99,72 @@ angular.module('schoolApp')
             ServerCall.getData('teacher/teacherObject', 'GET', '', empListSuccess, empListError);
 
         }
+        var empRegSuccess = function(res) {
+            debugger;
+        };
+        var empRegError = function(res) {
+            debugger;
+        };
         $scope.fnRegisterEmployee = function() {
-            var _oTheme = {
-                "BoxedLayout": false,
-                "FixedHeader": false,
-                "FixedSidebar": false,
-                "ClosedSideBar": false,
-                "HeaderColour": null,
-                "SideBarColour": null,
-            }
-            var _aAddress = [{
-                "AddressTypeID": 0,
-                "Address1": null,
-                "Address2": null,
-                "City": null,
-                "State": null,
-                "CountryID": 0,
-                "PostalCode": null
-            }]
-            var _aPhone = [{
-                "PhoneTypeID": 0,
-                "PhoneNumber": null,
-                "PhoneExt": null
-            }];
-            var _aSecurityQues = [{
-                "SecurityAnswer": null,
-                "SecurityQuestionID": null
-            }]
+            if ($('#teacherRegistrationForm').valid()) {
+                var _aPhone = [],
+                    _aAddress = [];
+                for (var i = 1; i <= $scope.phoneNumList.length; i++) {
+                    var _tempObj = {
+                        "PhoneTypeID": $scope.phoneType[i],
+                        "PhoneNumber": $scope.phoneNumber[i],
+                        "PhoneExt": $scope.extention[i]
+                    }
+                    _aPhone.push(_tempObj);
+                }
+                for (var i = 1; i <= $scope.addList.length; i++) {
+                    var _tempObj = {
+                        "AddressTypeID": $scope.addType[i],
+                        "Address1": $scope.addline1[i],
+                        "Address2": $scope.addline2[i],
+                        "City": $scope.addCity[i],
+                        "State": $scope.addState[i],
+                        "CountryID": $scope.addCountry[i],
+                        "PostalCode": $scope.addPostalCode[i]
+                    }
+                    _aAddress.push(_tempObj);
+                }
 
-            var dataObj = {
-                "Theme": _oTheme,
-                "Email": null,
-                "Password": null,
-                "FirstName": null,
-                "LastName": null,
-                "Gender": false,
-                "DateOfBirth": null,
-                "Image": null,
-                "Address": _aAddress,
-                "Phone": _aPhone ,
-                "Security": _aSecurityQues
+                var _oTheme = {
+                    "BoxedLayout": false,
+                    "FixedHeader": false,
+                    "FixedSidebar": false,
+                    "ClosedSideBar": false,
+                    "HeaderColour": null,
+                    "SideBarColour": null,
+                }
+
+                var _aSecurityQues = [{
+                    "SecurityAnswer": $scope.ans1,
+                    "SecurityQuestionID": $scope.que1
+                }, {
+                    "SecurityAnswer": $scope.ans2,
+                    "SecurityQuestionID": $scope.que2
+                }, {
+                    "SecurityAnswer": $scope.ans3,
+                    "SecurityQuestionID": $scope.que3
+                }]
+
+                var dataObj = {
+                    "Theme": _oTheme,
+                    "Email": $scope.emailId,
+                    "Password": $scope.pwd,
+                    "FirstName": $scope.firstName,
+                    "LastName": $scope.lastName,
+                    "Gender": $scope.gender,
+                    "DateOfBirth": $scope.dob,
+                    "Image": null,
+                    "Address": _aAddress,
+                    "Phone": _aPhone,
+                    "Security": _aSecurityQues
+                }
+
+                ServerCall.getData('registration/teacher', 'POST', dataObj, empRegSuccess, empRegError);
             }
         }
 

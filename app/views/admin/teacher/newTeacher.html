@@ -29,7 +29,7 @@
                     <label> Email:</label>
                 </div>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control txt-width" placeholder="Email" name="Email" ng-model="parentEmail">
+                    <input type="text" class="form-control txt-width" placeholder="Email" name="Email" ng-model="emailId">
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                     <label>Password:</label>
                 </div>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control txt-width" placeholder="Password" name="Password" ng-model="pwd">
+                    <input type="password" class="form-control txt-width" placeholder="Password" name="Password" ng-model="pwd">
                 </div>
             </div>
         </div>
@@ -49,14 +49,14 @@
                     <label>Confirm Password:</label>
                 </div>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control txt-width" placeholder="Confirm Password" name="cpwd" ng-model="cpwd">
+                    <input type="password" class="form-control txt-width" placeholder="Confirm Password" name="cpwd" ng-model="cpwd">
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-5 text-right">
-                    <label>Date Of Birth:</label>
+                    <label>Date of birth:</label>
                 </div>
                 <div class="col-sm-7">
                     <past-date past-date="dob" name="date"> </past-date>
@@ -82,25 +82,30 @@
                     <a class="trash-pos" href ng-show="phoneNumObj!=1" ng-click="deletePhoneNumbers($index)"><span class="glyphicon glyphicon-trash"></span></a>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 w-30-percent text-right">
                         <label>Type:</label>
                     </div>
                     <div class="col-sm-8">
                         <select class="form-control ddl-width" name="type" ng-model="phoneType[phoneNumObj]">
                             <option value="">Select Type</option>
-                            <option value="home">Home</option>
-                            <option value="office">Office</option>
-                            <option value="mobile">Mobile</option>
-                            <option value="personal">Personal</option>
+                            <option ng-repeat="obj in constants.Phone" value="{{obj.PhoneTypeID}}">{{obj.PhoneType}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 w-30-percent text-right">
                         <label>Phone Number:</label>
                     </div>
                     <div class="col-sm-8">
                         <input type="text" class="form-control txt-width" placeholder="Phone Number" name="phoneNumber" ng-model="phoneNumber[phoneNumObj]">
+                    </div>
+                </div>
+                 <div class="row form-group">
+                    <div class="col-sm-4 w-30-percent text-right">
+                        <label>Extention:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control txt-width" placeholder="Extention" name="extention" ng-model="extention[phoneNumObj]">
                     </div>
                 </div>
             </div>
@@ -113,37 +118,34 @@
                     <a class="trash-pos" href ng-show="addObj!=1" ng-click="deleteAddress($index)"><span class="glyphicon glyphicon-trash"></span></a>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 w-30-percent text-right">
                         <label>Type:</label>
                     </div>
                     <div class="col-sm-8">
                         <select class="form-control ddl-width" name="type1" ng-model="addType[addObj]">
                             <option value="">Select Type</option>
-                            <option value="homeadd">Home Address</option>
-                            <option value="currentadd">Current Address</option>
-                            <option value="perminentadd">Perminent Address</option>
-                            <option value="officeadd">Office Address</option>
+                             <option ng-repeat="obj in constants.Address" value="{{obj.AddressTypeID}}">{{obj.AddressType}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 w-30-percent text-right">
                         <label>Address Line1:</label>
                     </div>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control txt-width" placeholder="Address" name="Address" ng-model="addline1[addObj]">
+                        <input type="text" class="form-control txt-width" placeholder="Address1" name="Address" ng-model="addline1[addObj]">
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 w-30-percent text-right">
                         <label>Address Line2:</label>
                     </div>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control txt-width" placeholder="Address" name="Address1" ng-model="addline2[addObj]">
+                        <input type="text" class="form-control txt-width" placeholder="Address2" name="Address1" ng-model="addline2[addObj]">
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 w-30-percent text-right">
                         <label>City:</label>
                     </div>
                     <div class="col-sm-8">
@@ -151,7 +153,7 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 w-30-percent text-right">
                         <label>State:</label>
                     </div>
                     <div class="col-sm-8">
@@ -159,18 +161,18 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 w-30-percent text-right">
                         <label>Country:</label>
                     </div>
                     <div class="col-sm-8">
                         <select class="form-control ddl-width" name="country" ng-model="addCountry[addObj]">
                             <option value="">Select Country</option>
-                            <option ng-repeat="countryObj in countryList" value="{{countryObj}}">{{countryObj}}</option>
+                            <option ng-repeat="obj in constants.Country" value="{{obj.CountryID}}">{{obj.CountryName}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 w-30-percent text-right">
                         <label>Postel Code:</label>
                     </div>
                     <div class="col-sm-8">
@@ -185,9 +187,9 @@
                     <label>Security Question1:</label>
                 </div>
                 <div class="col-sm-7">
-                    <select class="form-control ddl-width" ng-model="selClass" name="question" ng-change="getStudentsList()">
+                    <select class="form-control ddl-width" ng-model="que1" name="question" ng-change="getStudentsList()">
                         <option value="">select question</option>
-                        <option ng-repeat="queObj in queList" value="{{queObj}}">{{queObj}}</option>
+                        <option ng-repeat="obj in constants.Security" value="{{obj.SecurityQuestionID}}">{{obj.SecurityQuestion}}</option>
                     </select>
                 </div>
             </div>
@@ -197,7 +199,7 @@
                 <label>Answer:</label>
             </div>
             <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer" ng-model="phoneNo">
+                <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer" ng-model="ans1">
             </div>
         </div>
         <div class="form-group">
@@ -206,9 +208,9 @@
                     <label>Security Question2:</label>
                 </div>
                 <div class="col-sm-7">
-                    <select class="form-control ddl-width" ng-model="selClass" name="question1" ng-change="getStudentsList()">
+                    <select class="form-control ddl-width" ng-model="que2" name="question1" ng-change="getStudentsList()">
                         <option value="">select question</option>
-                        <option ng-repeat="queObj in queList" value="{{queObj}}">{{queObj}}</option>
+                         <option ng-repeat="obj in constants.Security" value="{{obj.SecurityQuestionID}}">{{obj.SecurityQuestion}}</option>
                     </select>
                 </div>
             </div>
@@ -218,7 +220,7 @@
                 <label>Answer:</label>
             </div>
             <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer1" ng-model="phoneNo">
+                <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer1" ng-model="ans2">
             </div>
         </div>
         <div class="form-group">
@@ -227,9 +229,9 @@
                     <label>Security Question3:</label>
                 </div>
                 <div class="col-sm-7">
-                    <select class="form-control ddl-width" ng-model="selClass" name="question2" ng-change="getStudentsList()">
+                    <select class="form-control ddl-width" ng-model="que3" name="question2" ng-change="getStudentsList()">
                         <option value="">select question</option>
-                        <option ng-repeat="queObj in queList" value="{{queObj}}">{{queObj}}</option>
+                        <option ng-repeat="obj in constants.Security" value="{{obj.SecurityQuestionID}}">{{obj.SecurityQuestion}}</option>
                     </select>
                 </div>
             </div>
@@ -239,7 +241,7 @@
                 <label>Answer:</label>
             </div>
             <div class="col-sm-7">
-                <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer2" ng-model="phoneNo">
+                <input type="text" class="form-control txt-width" placeholder="Answer" name="Answer3" ng-model="ans3">
             </div>
         </div>
     </form>
