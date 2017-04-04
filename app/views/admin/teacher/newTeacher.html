@@ -3,6 +3,9 @@
         <h4>TEACHER REGISTRATION:</h4>
     </div>
     <form id="teacherRegistrationForm">
+    <div class="form-group error text-center" ng-if="isShowError">
+    <h4>{{errorMsg}}</h4>
+    </div>
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-5 text-right">
@@ -74,6 +77,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="row form-group" ng-repeat="phoneNumObj in phoneNumList track by $index">
             <div class="m-l-27p col-sm-6 box-shadow-empPhone">
                 <div class="row form-group border-bottom">
@@ -86,7 +90,7 @@
                         <label>Type:</label>
                     </div>
                     <div class="col-sm-8">
-                        <select class="form-control ddl-width" name="type" ng-model="phoneType[phoneNumObj]">
+                        <select class="form-control ddl-width" name="type" ng-model="phoneType[phoneNumObj]" ng-change="chagePhoneType(phoneType[phoneNumObj],phoneNumObj)">
                             <option value="">Select Type</option>
                             <option ng-repeat="obj in constants.Phone" value="{{obj.PhoneTypeID}}">{{obj.PhoneType}}</option>
                         </select>
@@ -110,6 +114,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="row form-group" ng-repeat="addObj in addList track by $index">
             <div class="m-l-27p col-sm-6 box-shadow-empAdd">
                 <div class="row form-group border-bottom">
@@ -122,7 +127,7 @@
                         <label>Type:</label>
                     </div>
                     <div class="col-sm-8">
-                        <select class="form-control ddl-width" name="type1" ng-model="addType[addObj]">
+                        <select class="form-control ddl-width" name="type1" ng-model="addType[addObj]" ng-change="chageAddType(addType[addObj],addObj)">
                             <option value="">Select Type</option>
                              <option ng-repeat="obj in constants.Address" value="{{obj.AddressTypeID}}">{{obj.AddressType}}</option>
                         </select>
@@ -181,13 +186,16 @@
                 </div>
             </div>
         </div>
+         <div class="row form-group" ng-If="isSameQue">
+           <span class="error">You selected same question</span>
+        </div>
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-5 text-right">
                     <label>Security Question1:</label>
                 </div>
                 <div class="col-sm-7">
-                    <select class="form-control ddl-width" ng-model="que1" name="question" ng-change="getStudentsList()">
+                    <select class="form-control ddl-width" ng-model="que1" name="question"  ng-change="changeQue(que1,'que1')">
                         <option value="">select question</option>
                         <option ng-repeat="obj in constants.Security" value="{{obj.SecurityQuestionID}}">{{obj.SecurityQuestion}}</option>
                     </select>
@@ -208,7 +216,7 @@
                     <label>Security Question2:</label>
                 </div>
                 <div class="col-sm-7">
-                    <select class="form-control ddl-width" ng-model="que2" name="question1" ng-change="getStudentsList()">
+                    <select class="form-control ddl-width" ng-model="que2" name="question1"  ng-change="changeQue(que2,'que2')">
                         <option value="">select question</option>
                          <option ng-repeat="obj in constants.Security" value="{{obj.SecurityQuestionID}}">{{obj.SecurityQuestion}}</option>
                     </select>
@@ -229,7 +237,7 @@
                     <label>Security Question3:</label>
                 </div>
                 <div class="col-sm-7">
-                    <select class="form-control ddl-width" ng-model="que3" name="question2" ng-change="getStudentsList()">
+                    <select class="form-control ddl-width" ng-model="que3" name="question2"  ng-change="changeQue(que3,'que3')">
                         <option value="">select question</option>
                         <option ng-repeat="obj in constants.Security" value="{{obj.SecurityQuestionID}}">{{obj.SecurityQuestion}}</option>
                     </select>

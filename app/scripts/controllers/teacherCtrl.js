@@ -15,7 +15,7 @@ angular.module('schoolApp')
         $scope.addState = {};
         $scope.addCountry = {};
         $scope.addPostalCode = {};
-
+        $scope.isShowError=false;
         $scope.constants = sessionStorage.getItem('constantsData');
         if ($scope.constants == null) {
             var constantSuccCB = function(data) {
@@ -86,7 +86,49 @@ angular.module('schoolApp')
             $scope.addCountry = _tempCountry;
             $scope.addPostalCode = _tempPostal;
         };
+        $scope.chagePhoneType = function(type, model) {
+            debugger;
+            var _aTemp=[];
+            angular.forEach($scope.phoneType, function(v, k) {
+                if(v==type){
+                    _aTemp.push(type);
+                }
+            });
+            if(_aTemp.length !=1){
+                $scope.phoneType[model]='';
+                $scope.errorMsg="Phone number type already selected";
+                $scope.isShowError=true;
+            }
+        }
+        $scope.chageAddType=function(type,model){
+            var _aTemp=[];
+            angular.forEach($scope.addType, function(v, k) {
+                if(v==type){
+                    _aTemp.push(type);
+                }
+            });
+            if(_aTemp.length !=1){
+                $scope.addType[model]='';
+                $scope.errorMsg="Address type already selected";
+                $scope.isShowError=true;
+            }
+        }
+        
+        $scope.changeQue = function(que,model) {
+            var _temp=0;
+            for(var i=1;i<=3;i++){
+                if($scope['que'+i]==que){
+                    _temp=_temp+1;
+                }
+            }
+            if(_temp!=1){
+               $scope[model]=''; 
+               $scope.errorMsg="You selected duplicate question";
+               $scope.isShowError=true;
+            }
 
+            
+        }
 
         var empListSuccess = function(res) {
             $scope.empList = res;
@@ -149,6 +191,9 @@ angular.module('schoolApp')
                     "SecurityAnswer": $scope.ans3,
                     "SecurityQuestionID": $scope.que3
                 }]
+
+
+
 
                 var dataObj = {
                     "Theme": _oTheme,
