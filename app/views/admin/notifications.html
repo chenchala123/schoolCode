@@ -1,0 +1,14 @@
+<div id="notifications">
+  <div id="notify_title" >
+      YOU HAVE {{count}} MESSAGES
+  </div>
+  <div id="notify_msg">
+    <ul ng-init="notification_msgs = ['msg1','msg2','msg3','msg4','msg5','msg6','msg7','msg8']">
+        <li ng-repeat="msg in notification_msgs">
+        {{msg}}
+        <div role="separator" class="divider"></div>
+        </li>
+    </ul>
+  </div>
+  <div class="btnrow"><div class="btn btn-primary btn-lg btn-all">View All Notifications</div><div>  
+</div>

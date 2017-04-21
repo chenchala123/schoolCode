@@ -7,7 +7,8 @@ angular.module('schoolApp')
                 sessionStorage.setItem('token', res.Token);
                 $rootScope.$broadcast('loggedIn', true);
                 CommonService.getConstantData();
-
+                sessionStorage.setItem('uname', res.Name);
+                sessionStorage.setItem('profilepic', res.ProfilePicture);
             } else if (res.IsLockedOut == true) {
 
             } else {

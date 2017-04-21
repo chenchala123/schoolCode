@@ -1,0 +1,45 @@
+<div class="box-navbar">
+                    <div class="status-box clearfix">
+                        <div class="curr-img">
+                            <a  title=""  class="change-img">Change photo</a>
+                            <img class="img-circle" ng-src="{{profileimg}}" onerror="this.src='images/admin.jpg';" alt="">
+                        </div>
+                        <div class="user-info">
+                            <span>
+                              {{userName}}
+                            </span>
+                            <a href="#" title="Edit profile">Edit Profile</a>
+                            <a href="#" title="View notifications">View notifications</a>
+                        </div>
+                    </div>
+                    <div role="separator" class="divider"></div>
+                    <ul class="reset-ul mrg5B">
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon float-right glyphicon-triangle-right"></i>
+                                Profile
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon float-right glyphicon-triangle-right"></i>
+                                Settings
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="questions.php">
+                                <i class="glyphicon float-right glyphicon-triangle-right"></i>
+                                Change Password
+
+                            </a>
+                        </li>
+                    </ul>
+                      <div role="separator" class="divider"></div>
+                    <div class="pad5A button-pane button-pane-alt text-center">
+                        <a class="btn btn-block font-normal btn-danger" ng-click="fnLogout()" >
+                            <span class="glyphicon glyphicon-off"></span>Logout
+                        </a>
+                    </div>
+                </div>

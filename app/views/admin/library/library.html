@@ -2,5 +2,61 @@
     <div class="form-group">
         <h4> LIBRARY:</h4>
     </div>
-    
+    <div>
+    <select class="classselect" ng-change="classChanged(selectClass.Class)" ng-model="selectClass.Class" ng-value="selectClass.ClassID"  ng-options="class.Class for class  in classlist">
+      </select>
+    <div class="row">
+      <div class="col-sm-12 library_table">
+        <table border="1">
+          <thead>
+            <tr><th colspan="3"><input ng-model="groupcheck" type="checkbox"></input>Title</th><th colspan="3">Subject</th><th colspan="10">Description</th></tr>
+          </thead>
+          <tr  ng-repeat="data in tabledata" ng-click="editDocument(data)">
+            <td  colspan="3" class="lib-col1">
+            <input ng-model="groupcheck" type="checkbox"></input>  {{data.Title}}
+            </td>
+            <td colspan="3" class="lib-col2">
+              {{data.Subject}}
+            </td>
+            <td colspan="10" class="lib-col3">
+              {{data.Description}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+ <!-- Table 2 -->
+ <div ng-hide="true">
+    <select class="classselect" ng-change="classChanged(editClass.Class)" ng-model="editClass.Class"  ng-options="class.Class for class  in classlist">
+      </select>
+    <div class="row">
+      <div class="col-sm-12 library_table">
+        <table border="1">
+          <thead>
+            <tr><th colspan="3"><input ng-model="groupcheck" type="checkbox"></input>Title</th>
+              <th colspan="3">Subject</th>
+              <th colspan="10">Description</th><th colspan="2">Action</th></tr>
+          </thead>
+          <tr  ng-repeat="data in tabledata">
+            <td  colspan="3" class="lib-col1">
+            <input ng-model="groupcheck" type="checkbox"></input>  {{data.Title}}
+            </td>
+            <td colspan="3" class="lib-col2">
+              {{data.Subject}}
+            </td>
+            <td colspan="10" class="lib-col3">
+              {{data.Description}}
+            </td>
+            <td colspan="2" >
+              <span class="glyphicon glyphicon-pencil" style="color:orange;"></span>
+              <span class="glyphicon glyphicon-trash" style="color:red;"></span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+    <button type="button" class="btn btn-info" ng-click="toggledoc($event)">Add Document</button>
+    <ng-pop-up option='docPopupConfig'></ng-pop-up>
 </div>

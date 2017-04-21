@@ -9,6 +9,7 @@ angular.module('schoolApp')
                 ServerCall.getData('lookup/class', 'GET', '', function(data) {
                     debugger;
                     sessionStorage.setItem('classList', JSON.stringify(redatas.classList));
+
                     classList = data.classList
                     return classList;
                 }, function(data) {

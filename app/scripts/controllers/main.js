@@ -1,10 +1,39 @@
 'use strict';
 
 angular.module('schoolApp')
-    .controller('MainCtrl', function($scope,$modal, $rootScope, $location, $timeout) {
+    .controller('MainCtrl', function($scope,$modal, $rootScope, $location, $timeout,CommonService) {
         $scope.isAdminLoggedIn = false;
+        $scope.boxlayout=false;
+        $scope.fixheader=false;
+        $scope.fixsidebar=false;
+        $scope.closesidebar=false;
+        $scope.count= 10;
+        $scope.constants=sessionStorage.getItem('constantsData');
+            if( $scope.constants==null){
+                var constantSuccCB=function(data){
+                    $scope.constants=data;
+                }
+                var ConstantErrCB=function(data){
+                    $scope.constants=data;
+                }
+                 $scope.constants=CommonService.getConstantData(constantSuccCB,ConstantErrCB);
+                }else{
+                    $scope.constants=JSON.parse($scope.constants);
+                }
+
         if (sessionStorage.getItem('token') != null) {
             $scope.isAdminLoggedIn = true;
+           $rootScope.colors = $scope.constants.Colour;
+           $scope.roles = $scope.constants.Roles;
+           sessionStorage.getItem('uname');
+           console.log(sessionStorage.getItem('uname'));
+           sessionStorage.getItem('profilepic');
+           $scope.userName = sessionStorage.getItem('uname');
+            if(sessionStorage.getItem('profilepic') != null){
+              $scope.profileimg = sessionStorage.getItem('profilepic');
+            }else{
+              $scope.profileimg = "images/admin.jpg";
+            }
         }
 
         $rootScope.$on('loggedIn', function(eve,data) {
@@ -12,6 +41,8 @@ angular.module('schoolApp')
             if(data==true){
                 $location.path('/admin/dashboard');
                 $scope.isAdminLoggedIn = true;
+                $rootScope.colors = $scope.constants.Colour;
+
             }else{
                 $scope.isAdminLoggedIn = false;
                  $location.path('/login');
@@ -79,6 +110,77 @@ angular.module('schoolApp')
 
 
             }
+        }
+
+    //FULL SCREEN SECTION
+        $scope.fnFullscreen = function(){
+        var _el = document.body;
+        var request = _el.requestFullScreen || _el.webkitRequestFullScreen || _el.mozRequestFullScreen || _el.msRequestFullScreen;
+        console.log(request);
+          if(request){
+            request.call(_el);
+          }
+          else if(typeof window.ActiveXObject !== "undefined"){
+            var oldwindows = new ActiveXObject("WScript.Shell");
+            if(oldwindows !== null){
+              oldwindows.SendKeys("{F11}");
+            }
+          }
+        }
+
+      //SWitching THEME colors
+        $rootScope.themeSwitch = function(theme,item){
+          switch(item){
+            case 0: $scope.themestyleheader = {"background" : "linear-gradient(154deg, #008fe2 0, #00b29c 100%)",};
+                    break;
+            case 1: $scope.themestyleheader = {"background" : theme.Colour,};
+                    break;
+            case 2: $rootScope.themestylesidebar = {"background" : theme.Colour,};
+                    break;
+            case 3: $rootScope.themestylesidebar = {"background" : "linear-gradient(154deg, #008fe2 0, #00b29c 100%)",};
+                    break;
+          }
+        }
+
+        //Switching Theme Header, Side bar Sizes
+        $rootScope.themebuttons = function(item){
+          $scope.boxlayout = !$scope.boxlayout;
+          $scope.fixheader = !$scope.fixheader;
+          $scope.fixsidebar = !$scope.fixsidebar;
+          $scope.closesidebar = !$scope.closesidebar;
+          switch(item){
+            case 0: if($scope.boxlayout){
+                      $rootScope.boxedlayout= 'bx-80';
+                      $rootScope.boxedlayout1='bx-81';
+                    }else{
+                      $rootScope.boxedlayout = '';
+                      $rootScope.boxedlayout1='';
+                    }
+                    break;
+            case 1: if($scope.fixheader){
+                        $rootScope.fixedhead2= 'fx-hd';
+                        $rootScope.fixedhead= {"overflow-y":"scroll","height":"500px"};
+                    }else{
+                      $rootScope.fixedhead2= '';
+                      $rootScope.fixedhead= {"overflow-y":"scroll","height":"auto"};
+                    }
+                    break;
+            case 2: if($scope.fixsidebar){
+                      $rootScope.sidefixed = 'fx-sd';
+                      $rootScope.sidefixed2 = 'fx-sd2';
+                    }else{
+                      $rootScope.sidefixed = '';
+                      $rootScope.sidefixed2 = '';
+                    }
+                    break;
+            case 3: if($scope.closesidebar){
+                            $rootScope.closesidebar = true;
+                    }else{
+                      $rootScope.closesidebar = false;
+                    }
+                    break;
+          }
+
         }
         $scope.fnRefresh = function() {
             var url = $location.$$path;
@@ -159,7 +261,7 @@ angular.module('schoolApp')
                         $rootScope.$broadcast('loggedIn',false);
                     }
                     var errCB = function(res) {
-                        
+
                     }
                     $scope.yes = function() {
                         ServerCall.getData('authentication/logout', 'get', '', sucCB, errCB)

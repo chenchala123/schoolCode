@@ -1,10 +1,32 @@
-<div id="header" ng-controller="MainCtrl" class="form-group" >
+<div id="header" ng-controller="MainCtrl" ng-class="boxedlayout" ng-style="themestyleheader" class="form-group" >
      <div class="row">
-     <div class="col-sm-3">
-     <img id="logo" class="img-responsive pull-right" ng-src="images/sch9.png"></div>
-     <div class="col-sm-6"></div>
-     <div class="col-sm-3 text-right">
-     <a ng-if="isAdminLoggedIn" href="" ng-click="fnLogout()">Logout</a></div>
-     </div>
-    <div ng-if="isAdminLoggedIn" ng-include="'views/admin/adminMenu.html'" ></div>
+       <div class="col-xs-2 col-sm-2 hidden-md  hidden-lg ">
+         <button type="button" id="toggleicon" ng-click="menuToggle()" >
+             <i class="fa fa-bars fa-2x fa-color" aria-hidden="true"></i>
+         </button>
+       </div>
+       <div class="col-sm-2 hidden-sm col-xs-4 col-md-2" ng-class="$root.sidefixed">
+         <img id="logo" class=" img-responsive pull-right" ng-src="images/sch9.png">
+       </div>
+       <div class="col-xs-3 col-sm-4  col-md-6" ng-class="$root.sidefixed2">
+         <div class="adminNav" ng-if="isAdminLoggedIn">
+          <button class="btn btn-default" id="usermenu"  popover-template="'views/admin/userPopup.html'"  popover-trigger="focus" popover-placement="bottom" ><img width="28" class="img-circle" ng-src="{{profileimg}}" onerror="this.src='images/admin.jpg';" /><span class="mnu-title">{{userName}}</span> <span  class="caret mnu-caret"></span></button>
+        </div>
+       </div>
+       <div class="col-xs-2 col-md-2 col-lg-2 hidden-xs" ng-if="isAdminLoggedIn" ng-class="$root.sidefixed2">
+         <img id="logo" class="img-responsive logo-xs pull-right" ng-src="images/sch9.png">
+       </div>
+       <div class="col-md-2 hidden-xs hidden-sm headright"  ng-class="$root.sidefixed2">
+         <button type="button" ng-if="isAdminLoggedIn" ng-click="fnFullscreen()" class="btn btn-default btn-sm">
+           <span class="glyphicon glyphicon-fullscreen"></span>
+         </button>
+         <button type="button" id="notify_pop" ng-if="isAdminLoggedIn" popover-template="'views/admin/notifications.html'"  popover-trigger="focus" popover-placement="left-bottom" class="btn btn-default btn-xs">
+          <span class="glyphicon glyphicon-bullhorn"></span><span class="badge">{{count}}</span>
+         </button>
+         <button type="button" id="roles_pop" ng-if="isAdminLoggedIn" popover-template="'views/admin/roles.html'"  popover-trigger="focus" popover-placement="left-bottom" class="btn btn-default btn-xs">
+           <span class="glyphicon glyphicon-user"></span>
+         </button>
+         <a ng-if="isAdminLoggedIn" ng-hide="true" href="" ng-click="fnLogout()">Logout</a>
+       </div>
+       </div>
 </div>

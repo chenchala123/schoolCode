@@ -1,0 +1,71 @@
+<div class="theme">
+  <ul>
+    <li class="caption">
+      <div role="separator" class="divider"></div>
+      <label for="">LAYOUT OPTIONS</label>
+    </li>
+    <li>
+      <div role="separator" class="divider"></div>
+      <label for="">Boxed Layout</label>
+      <switch id="boxlay" name="boxlay" ng-model="boxlayout" ng-change="themebuttons(0)"  class="green"></switch>
+    </li>
+    <li>
+      <div role="separator" class="divider"></div>
+      <label for="">Fixed Header</label>
+      <switch id="fixhead" name="fixhead" ng-model="fixheader"  ng-change="themebuttons(1)"  class="green"></switch>
+    </li>
+    <li>
+      <div role="separator" class="divider"></div>
+      <label for="">Fixed Sidebar</label>
+      <switch id="fixside" name="fixside" ng-model="fixsidebar" ng-change="themebuttons(2)"  class="green"></switch>
+    </li>
+    <li>
+      <div role="separator" class="divider"></div>
+      <label for="">Closed Sidebar</label>
+      <switch id="closeside" name="closeside" ng-change="themebuttons(3)" ng-model="closesidebar"  class="green"></switch>
+    </li>
+    <li class="caption">
+      <div role="separator" class="divider"></div>
+      <label for="">HEADER STYLE</label>
+      <div class="btn btn-clear btn-custom" ng-click="$root.themeSwitch(null,0)">clear</div>
+    </li>
+    <li class="caption">
+      <div role="separator" class="divider"></div>
+      <h2>Solids</h2>
+      <ul class="solid">
+        <li ng-repeat="color in $root.colors | filter:{Group:'1'}" ng-click="$root.themeSwitch(color,1)" tooltip="{{color.Name}}" ng-init="normcolor={'background-color':color.Colour,'width':'24px','height':'24px'}" ng-style="normcolor">
+            {{color.colors}}
+        </li>
+      </ul>
+    </li>
+    <li class="caption">
+      <div role="separator" class="divider"></div>
+      <h2>Gradients</h2>
+      <ul class="solid">
+        <li ng-repeat="color in $root.colors | filter:{Group:'2'}" ng-click="$root.themeSwitch(color,1)" tooltip="{{color.Name}}"  ng-init="normcolor={'background':color.Colour,'width':'24px','height':'24px'}" ng-style="normcolor">
+        </li>
+      </ul>
+    </li>
+    <li class="caption">
+      <div role="separator" class="divider"></div>
+      <label for="">SIDEBAR STYLES</label>
+      <div class="btn btn-clear btn-custom" ng-click="$root.themeSwitch(null,3)">clear</div>
+    </li>
+    <li class="caption">
+      <div role="separator" class="divider"></div>
+      <h2>Solids</h2>
+      <ul class="solid">
+        <li ng-repeat="color in $root.colors | filter:{Group:'1'}" ng-click="$root.themeSwitch(color,2)" tooltip="{{color.Name}}" ng-init="normcolor={'background-color':color.Colour,'width':'24px','height':'24px'}" ng-style="normcolor">
+        </li>
+      </ul>
+    </li>
+    <li class="caption">
+      <div role="separator" class="divider"></div>
+      <h2>Gradients</h2>
+      <ul class="solid">
+        <li ng-repeat="color in $root.colors | filter:{Group:'2'}" ng-click="$root.themeSwitch(color,2)" tooltip="{{color.Name}}" ng-init="normcolor={'background':color.Colour,'width':'24px','height':'24px'}" ng-style="normcolor">
+        </li>
+      </ul>
+    </li>
+    </ul>
+</div>

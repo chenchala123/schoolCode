@@ -1,12 +1,8 @@
-<div class="visible-xs visible-sm hidden-md  hidden-lg pull-right ">
-    <button type="button" ng-click="menuToggle()" >
-        <i class="fa fa-bars fa-2x fa-color" aria-hidden="true"></i>
-    </button>
-</div>
-<ul class="menu m-b-100px">
+<div id="togglesidebar" ng-class="$root.sidefixed"  ng-show="!$root.closesidebar" ng-animate = "{enter:'enterspin',leave:'leavespin'}">
+<ul class="menu m-b-100px hidden-sm hidden-xs" ng-class="$root.boxedlayout1" ng-style="$root.themestylesidebar">
     <li id="dashboard" class="top-li"  data-toggle="collapse" href="#admin" data-ng-click="clickMainTab('dashboard')">  <i class="fa fa-unlock-alt fa-lg"></i>&nbsp;Dashboard
     </li>
-   
+
     <li id="student" class="top-li"  data-toggle="collapse" href="#studentMenu" data-ng-click="clickMainTab('student')"><i class="fa fa-graduation-cap fa-lg"></i>&nbsp;Student
         <span ng-if="!studentTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
         <span ng-if="studentTop" class="glyphicon glyphicon-chevron-down pull-right"></span>
@@ -34,23 +30,23 @@
         <li id="eveSubMenu1" ng-click="clickSubTab('eveSubMenu3')" class="list-group-item">Modify Events</li>
     </ul>
     <li id="class" class="top-li" data-toggle="collapse" data-ng-click="clickMainTab('class')"><i class="fa fa-calendar fa-lg"></i>&nbsp;Class
-       
+
     </li>
-    
+
     <li id="dairy" class="top-li" data-toggle="collapse"  data-ng-click="clickMainTab('dairy')"> <i class="fa fa-user fa-lg"></i>&nbsp;Dairy
-       
+
     </li>
-    
+
     <li id="library" class="top-li" data-toggle="collapse"  data-ng-click="clickMainTab('library')"><i class="fa fa-area-chart fa-lg"></i>&nbsp;Library
-       
+
     </li>
-    
+
     <li id="payment" class="top-li" data-toggle="collapse"  data-ng-click="clickMainTab('payment')"> <i class="fa fa-bus fa-lg"></i>&nbsp;Payment
-      
+
     </li>
 
     <li id="reset" class="top-li"  data-toggle="collapse" data-ng-click="clickMainTab('reset')"> <i class="fa fa-cart-plus fa-lg"></i>&nbsp;Reset Password
-        
-    </li>
 
+    </li>
 </ul>
+</div>

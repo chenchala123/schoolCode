@@ -923,18 +923,104 @@
 ,
 	"Colour": [{
 		"ColourID": 1,
-		"Colour": "#EDDAB6"
+		"Colour": "#EDDAB6",
+		"Name":"",
+		"Group":""
 	}, {
 		"ColourID": 2,
-		"Colour": "#E8D1A4"
+		"Colour": "#E8D1A4",
+		"Name":"",
+		"Group":""
 	}, {
 		"ColourID": 3,
-		"Colour": "#DDA185"
+		"Colour": "#DDA185",
+		"Name":"",
+		"Group":""
 	}, {
 		"ColourID": 4,
-		"Colour": "#AB3334"
+		"Colour": "#AB3334",
+		"Name":"",
+		"Group":""
 	}, {
 		"ColourID": 5,
-		"Colour": "#331919"
+		"Colour": "#331919",
+		"Name":"",
+		"Group":""
+	},{
+		"ColourID": 6,
+		"Colour": "#337ab7",
+		"Name":"Primary",
+		"Group":"1"
+	}
+	,{
+		"ColourID": 7,
+		"Colour": "#2ecc71",
+		"Name":"Green",
+		"Group":"1"
+	},{
+		"ColourID": 8,
+		"Colour": "#e74c3c",
+		"Name":"Red",
+		"Group":"1"
+	},{
+		"ColourID": 9,
+		"Colour": "#3498db",
+		"Name":"Blue",
+		"Group":"1"
+	},{
+		"ColourID": 10,
+		"Colour": "#e67e22",
+		"Name":"Warning",
+		"Group":"1"
+	},{
+		"ColourID": 11,
+		"Colour": "#984dff",
+		"Name":"Purple",
+		"Group":"1"
+	},{
+		"ColourID": 12,
+		"Colour": "#2d2d2d",
+		"Name":"Black",
+		"Group":"1"
+	},{
+		"ColourID": 13,
+		"Colour": "radial-gradient(circle at 8.75% 8.45%, #003973, transparent 100%), radial-gradient(circle at 94.06% 82.83%, #E5E5BE, transparent 100%), radial-gradient(circle at 50% 50%, #668cc2, #668cc2 100%)",
+		"Name":"Gradient1",
+		"Group":"2"
+	},{
+		"ColourID": 14,
+		"Colour": "radial-gradient(circle at 1.98% 3%, #348F50, transparent 100%), radial-gradient(circle at 98.02% 98%, #56B4D3, transparent 100%), radial-gradient(circle at 50% 50%, #668cc2, #668cc2 100%)",
+		"Name":"Gradient2",
+		"Group":"2"
+	},{
+		"ColourID": 15,
+		"Colour": "radial-gradient(circle at 1.98% 74.02%, #E55D87, transparent 100%), radial-gradient(circle at 98.02% 35.97%, #5FC3E4, transparent 100%), radial-gradient(circle at 50% 50%, #0cc285, #0cc285 100%)",
+		"Name":"Gradient3",
+		"Group":"2"
+	},{
+		"ColourID": 16,
+		"Colour": "radial-gradient(circle at 1.98% 2%, #B993D6, transparent 100%), radial-gradient(circle at 98.02% 92.01%, #8CA6DB, transparent 100%), radial-gradient(circle at 50% 50%, #0cc285, #0cc285 100%)",
+		"Name":"Gradient4",
+		"Group":"2"
+	},{
+		"ColourID": 17,
+		"Colour": "radial-gradient(circle at 1.98% 89.01%, #7474BF, transparent 100%), radial-gradient(circle at 98.02% 21.98%, #348AC7, transparent 100%), radial-gradient(circle at 50% 50%, #0cc285, #0cc285 100%)",
+		"Name":"Gradient5",
+		"Group":"2"
+	},{
+		"ColourID": 18,
+		"Colour": "radial-gradient(circle at 1.98% 40.96%, #00c6ff, transparent 100%), radial-gradient(circle at 98.02% 52.04%, #0072ff, transparent 100%), radial-gradient(circle at 50% 50%, #0cc285, #0cc285 100%)",
+		"Name":"Gradient6",
+		"Group":"2"
+	},{
+		"ColourID": 19,
+		"Colour": "radial-gradient(circle at 1.98% 85.01%, #134E5E, transparent 100%), radial-gradient(circle at 98.02% 18.98%, #71B280, transparent 100%), radial-gradient(circle at 50% 50%, #0cc285, #0cc285 100%)",
+		"Name":"Gradient7",
+		"Group":"2"
+	},{
+		"ColourID": 20,
+		"Colour": "radial-gradient(circle at 1.98% 20.98%, #4b6cb7, transparent 100%), radial-gradient(circle at 98.02% 20.98%, #182848, transparent 100%), radial-gradient(circle at 50% 50%, #0cc285, #0cc285 100%)",
+		"Name":"Gradient8",
+		"Group":"2"
 	}]
 }

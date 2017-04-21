@@ -1,6 +1,7 @@
 'use strict';
 angular.module('schoolApp')
     .service('fileUpload', ['$http', function($http) {
+        var _self = this;
          this.token=localStorage.getItem('token');
         this.uploadData = function(uploadUrl, data, sucessCB, errorCB) {
             $('#spinner').css("display", "block");
@@ -8,7 +9,7 @@ angular.module('schoolApp')
             var token=localStorage.getItem('token');
             $http.post(uploadUrl, data, {
                     transformRequest: angular.identity,
-                    headers: {'Authorization':_self.token, 'Content-Type': undefined, 'Process-Data': false }
+                    headers: {'Authorization':token, 'Content-Type': undefined, 'Process-Data': false }
                 })
                 .then(function(res) {
                     sucessCB(res);
@@ -22,7 +23,7 @@ angular.module('schoolApp')
     .service('ServerCall', function($http) {
         var _self = this;
         _self.globalURL = "http://www.schooldiaryonline.com/api/";
-       
+
         _self.getData = function(path, method, data, sucessCB, errorCB) {
              _self.token=sessionStorage.getItem('token');
             $('#spinner').css("display", "block");

@@ -1,0 +1,32 @@
+<div class="libdoc class="form-horizontal" name="upload" role="form"">
+  <ul>
+    <label class="control-label" for="file_up">Upload File</label>
+    <div class=" ">
+        <input type="file" required class="form-control fileclass"  ui-validate='{titlechec:$root.file_v}' name="load.file" ng-change="uploadfile(this.files)" ng-model="upload.files" id="file_up" placeholder="My label" />
+        <ng-message class="errormessage" ng-show="$root.file_v">* Please upload a file </ng-message>
+    </div>
+          <li>
+            <label class="control-label" for="title_up">Title</label>
+            <div class="">
+                <input type="text" name="load.title"  ui-validate='{titlechec:$root.title_v}' ng-model="upload.title" class="form-control" id="title_up" />
+                <ng-message class="errormessage" ng-show="$root.title_v">* Please provide document a Name </ng-message>
+                <ng-message class="errormessage" ng-show="$root.title_max">* You reached maximum allowed letters </ng-message>
+            </div>
+          </li>
+          <li>
+            <label class="control-label" for="subject_up">Subject</label>
+            <div class="">
+                <input type="text" name="load.subject" ui-validate='{titlechec:$root.subject_v}' ng-maxlength="100" required ng-model="upload.subject" class="form-control" id="subject_up" />
+                <ng-message class="errormessage" ng-show="$root.subject_v">*Please provide a subject </ng-message>
+            </div>
+          </li>
+          <li>
+            <label class="control-label"  for="description_up">Description</label>
+            <div class="">
+                <textarea type="text" name="load.description" ng-model="upload.description" class="form-control" id="description_up" />
+            </div>
+          </li>
+      </ul>
+      <button type="clear" ng-hide="!$root.editmode"  ng-click="$root.delete($root.upload)" class="btn btn-primary btn-md">Delete</button>
+      <button type="submit"  ng-click="$root.upload_submit(upload)" class="btn btn-primary btn-md">Submit</button>
+</div>
